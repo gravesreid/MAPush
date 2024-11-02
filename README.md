@@ -52,12 +52,11 @@ Blocks used in terrain registration is defined in `./mqe/utils/terrain/barrier_t
 #### 1.1 Training ####
 
 - **1.1.1 Command Line**
-  - Command: `source z_main.sh <object>`
+  - Command: `source task/<object>/train.sh False`
   - `<object>` options: `cuboid`, `Tblock`, or `cylinder`
-  - Example: `source z_main.sh cuboid`
+  - Example: `source task/cuboid/train.sh False`
 
 - **1.1.2 Running Process**
-  - `z_main.sh` will invoke `task/<object>/train.sh` and pass the argument `<test_mode False>` to it.
   - `task/<object>/train.sh` updates `mqe/envs/configs/go1_push_config.py` based on `task/<object>/config.py`. It then starts training by running `./openrl_ws/train.py`. Training logs are temporarily stored in `./log/`. Once training completes, the final output (including model checkpoints, TensorBoard data, and task settings) is saved in `./results/<mm-dd-hh_object>`.
   - Afterward, `task/<object>/train.sh` calls `./openrl_ws/test.py` with `<test_mode calculator>` to compute the success rate for each checkpoint. The results are stored in `./results/<mm-dd-hh_object>/success_rate.txt`.
 
