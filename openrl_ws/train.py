@@ -24,28 +24,11 @@ def train(args):
     env, env_cfg = make_env(args, custom_cfg(args), single_agent)
     
     if args.algo == "ppo":
-        # args.config = "./openrl_ws/cfgs/ppo.yaml"
-        pass
-    
-    elif args.algo == "jrpo":
-        args.config = "./openrl_ws/cfgs/jrpo.yaml"
+        # or use --config ./openrl_ws/cfgs/ppo.yaml in terminal
+        args.lr = 0.0005
+        args.critic_lr = 0.0005
+        args.episode_length = 200
 
-    elif args.algo == "mat":
-        args.config = "./openrl_ws/cfgs/mat.yaml"
-
-        # from openrl.envs.wrappers.mat_wrapper import MATWrapper
-        from openrl.modules.common import MATNet
-        from openrl.runners.common import MATAgent
-        env = MATWrapper(env)
-        net = MATNet(env, cfg=args, device=args.rl_device)
-        agent = MATAgent(net, use_wandb=args.use_wandb)
-
-    elif args.algo == "sppo" or args.algo == "dppo":
-        pass
-
-    else:
-        raise NotImplementedError
-    
     if "po" in args.algo:
         from openrl.modules.common import PPONet
         from openrl.runners.common import PPOAgent
@@ -64,7 +47,12 @@ def train(args):
             use_tensorboard=args.use_tensorboard,
         )
         run_dir = str(logger.run_dir)
-        
+
+        # add config to log
+        if args.task == "go1push_mid":
+            source_folder = "./task/"+args.exp_name+"/"
+            target_folder = run_dir + "/task/"
+            shutil.copytree(source_folder, target_folder)
 
         if getattr(args, "checkpoint") is not None:
             if os.path.exists(args.checkpoint):

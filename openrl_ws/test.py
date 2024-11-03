@@ -121,24 +121,16 @@ else:
 
 if getattr(args, "checkpoint") is not None:
     agent.load(args.checkpoint)
-
-# command_module = torch.load(args.checkpoint, map_location="cuda:0")
-# rnn_states_command = np.zeros((env.num_envs * env.num_agents, 1, 64))
-# mask_command = np.ones((env.num_envs * env.num_agents, 1))
-
-
-def _t2n(x):
-    if isinstance(x, torch.Tensor):
-        return x.detach().cpu().numpy()
-    else:
-        return x
-
+    print("---------------------------------------------------------------------------")
+    print("Loaded checkpoint from: ", args.checkpoint)
+    
+test_mode = "calculator"
+if getattr(args, "test_mode") is not None:
+    test_mode = args.test_mode
 
 # env.start_recording()
 agent.set_env(env)  # The agent requires an interactive environment.
 obs = env.reset()  # Initialize the environment to obtain initial observations and environmental information.
-
-test_mode = "viewer"
 
 if test_mode == "calculator":
     while not torch.all(env.init_reset_buf):
