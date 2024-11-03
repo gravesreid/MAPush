@@ -47,7 +47,13 @@ def train(args):
             use_tensorboard=args.use_tensorboard,
         )
         run_dir = str(logger.run_dir)
-        
+
+        # add config to log
+        if args.task == "go1push_mid":
+            source_folder = "./task/"+args.exp_name+"/"
+            target_folder = run_dir + "/task/"
+            shutil.copytree(source_folder, target_folder)
+
         if getattr(args, "checkpoint") is not None:
             if os.path.exists(args.checkpoint):
                 agent.load(args.checkpoint)

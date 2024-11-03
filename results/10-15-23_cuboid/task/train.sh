@@ -1,8 +1,8 @@
 exp_name="cuboid"
 current_dir=$(pwd)
 algo="ppo"
-# script_path=$(realpath "${BASH_SOURCE[0]}")
-script_path=$(realpath $0)
+script_path=$(realpath "${BASH_SOURCE[0]}")
+# script_path=$(realpath $0)
 script_dir=$(dirname "$script_path")
 test_mode=$1
 
@@ -19,6 +19,7 @@ if [ $test_mode = False ]; then
     --algo $algo \
     --seed 1 \
     --exp_name  $exp_name \
+    --task go1push_mid \
     --use_tensorboard \
     --checkpoint $current_dir$checkpoint \
     --headless
@@ -36,6 +37,7 @@ if [ $test_mode = False ]; then
         test_checkpoint="$last_folder/checkpoints/$filename"
         python ./openrl_ws/test.py --num_envs 300 \
                 --algo "$algo" \
+                --task go1push_mid \
                 --checkpoint "$test_checkpoint" \
                 --test_mode calculator \
                 --headless  >> $last_folder/success_rate.txt 2>&1
@@ -48,7 +50,8 @@ filename="rl_model_100000000_steps/module.pt"
 test_checkpoint="$root_dir/checkpoints/$filename"
 python ./openrl_ws/test.py --num_envs 1 \
         --algo "$algo" \
+        --task go1push_mid \
         --checkpoint "$test_checkpoint" \
         --test_mode viewer \
-       --record_video
+#       --record_video
 fi

@@ -17,6 +17,7 @@ if [ $test_mode = False ]; then
 
     python ./openrl_ws/train.py  --num_envs $num_envs --train_timesteps $num_steps\
     --algo $algo \
+    --config ./openrl_ws/cfgs/ppo.yaml \
     --seed 16 \
     --exp_name  $exp_name \
     --task go1push_mid \
