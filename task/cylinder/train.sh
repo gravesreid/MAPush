@@ -6,8 +6,6 @@ script_path=$(realpath "${BASH_SOURCE[0]}")
 script_dir=$(dirname "$script_path")
 test_mode=$1
 
-conda activate mqe
-
 # update config
 python ./openrl_ws/update_config.py --filepath $script_dir/config.py
 
