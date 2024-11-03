@@ -25,8 +25,8 @@ def train(args):
     
     if args.algo == "ppo":
         # or use --config ./openrl_ws/cfgs/ppo.yaml in terminal
-        args.lr = 0.0007
-        args.critic_lr = 0.0007
+        args.lr = 0.0005
+        args.critic_lr = 0.0005
         args.episode_length = 200
 
     if "po" in args.algo:
