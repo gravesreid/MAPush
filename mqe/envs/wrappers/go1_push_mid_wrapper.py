@@ -10,10 +10,9 @@ from isaacgym.torch_utils import *
 # tensor type
 def rotation_matrix_2D(theta):
     theta = theta.float()
-    cos_theta = torch.cos(theta)  # 形状为 (N,)
-    sin_theta = torch.sin(theta)  # 形状为 (N,)
+    cos_theta = torch.cos(theta)  
+    sin_theta = torch.sin(theta)  
 
-    # 创建一个形状为 (N, 2, 2) 的旋转矩阵
     rotation_matrices = torch.stack([
         torch.stack([cos_theta, -sin_theta], dim=1),
         torch.stack([sin_theta, cos_theta], dim=1)
@@ -22,7 +21,6 @@ def rotation_matrix_2D(theta):
     return rotation_matrices
 
 def euler_to_quaternion_tensor(euler_angles):
-    # euler_angles的形状应为(self.num_envs, 3)，其中包含roll, pitch, yaw
     roll = euler_angles[:, 0]
     pitch = euler_angles[:, 1]
     yaw = euler_angles[:, 2]
