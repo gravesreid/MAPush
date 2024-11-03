@@ -1,0 +1,300 @@
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_10000000_steps/module.pt
+success rate: 0.006666666828095913
+finished time: 19.948001861572266
+collision degree: 0.0
+collaboration degree: 0.24062100052833557
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_20000000_steps/module.pt
+success rate: 0.03666666895151138
+finished time: 19.75946617126465
+collision degree: 0.0
+collaboration degree: 0.0
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_30000000_steps/module.pt
+success rate: 0.1366666704416275
+finished time: 18.857534408569336
+collision degree: 0.0
+collaboration degree: 0.00016763054009061307
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_40000000_steps/module.pt
+success rate: 0.1133333370089531
+finished time: 18.544734954833984
+collision degree: 0.0
+collaboration degree: 0.03218903765082359
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_50000000_steps/module.pt
+success rate: 0.2433333396911621
+finished time: 17.107269287109375
+collision degree: 0.0
+collaboration degree: 0.04280179366469383
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_60000000_steps/module.pt
+success rate: 0.27666667103767395
+finished time: 16.95586585998535
+collision degree: 0.0
+collaboration degree: 0.0357307530939579
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_70000000_steps/module.pt
+success rate: 0.4533333480358124
+finished time: 15.289133071899414
+collision degree: 0.0
+collaboration degree: 0.06218726560473442
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_80000000_steps/module.pt
+success rate: 0.5533333420753479
+finished time: 14.037067413330078
+collision degree: 0.0
+collaboration degree: 0.09352738410234451
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_90000000_steps/module.pt
+success rate: 0.5833333730697632
+finished time: 13.560334205627441
+collision degree: 0.0
+collaboration degree: 0.11922461539506912
+-----------------------------------------------------
+Importing module 'gym_38' (/workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /workspace/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.3.1+cu121
+Device count 1
+/workspace/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /root/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /root/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
+Loading extension module gymtorch...
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:21: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(TreeValue)
+/opt/conda/envs/mqe/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:22: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /workspace/repo/PUSH_MARL/results/10-15-23_cuboid//checkpoints/rl_model_100000000_steps/module.pt
+success rate: 0.596666693687439
+finished time: 13.610334396362305
+collision degree: 0.0
+collaboration degree: 0.10994823276996613
+-----------------------------------------------------
