@@ -13,8 +13,8 @@ python ./openrl_ws/update_config.py --filepath $script_dir/config.py
 
 if [ $test_mode = False ]; then
     # train
-    num_envs=500
-    num_steps=100000000
+    num_envs=1 ## original 500, reduced due to insufficient GPU memory
+    num_steps=100000000 ## original: 100000000  
     checkpoint=/None  # "/results/07-28-13_task1/checkpoints/rl_model_100000000_steps/module.pt"
 
     python ./openrl_ws/train.py  --num_envs $num_envs --train_timesteps $num_steps\
