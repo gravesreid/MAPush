@@ -24,8 +24,11 @@ def train(args):
     env, env_cfg = make_env(args, custom_cfg(args), single_agent)
     
     if args.algo == "ppo":
-        args.config = "./openrl_ws/cfgs/ppo.yaml"
-    
+        # or use --config ./openrl_ws/cfgs/ppo.yaml in terminal
+        args.lr = 0.0007
+        args.critic_lr = 0.0007
+        args.episode_length = 200
+
     if "po" in args.algo:
         from openrl.modules.common import PPONet
         from openrl.runners.common import PPOAgent
