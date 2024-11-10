@@ -1,4 +1,4 @@
-exp_name="Tblock"
+exp_name="avoidObstacle"
 current_dir=$(pwd)
 algo="ppo"
 script_path=$(realpath "${BASH_SOURCE[0]}")

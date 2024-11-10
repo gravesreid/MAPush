@@ -2,6 +2,7 @@
 from mqe.envs.field.legged_robot_field import LeggedRobotField
 from mqe.envs.go1.go1 import Go1
 from mqe.envs.npc.go1_object import Go1Object
+from mqe.envs.npc.go1_multiobject import Go1MultiObject
 
 # configs
 from mqe.envs.field.legged_robot_field_config import LeggedRobotFieldCfg
@@ -9,10 +10,12 @@ from mqe.envs.configs.go1_push_mid_config import Go1PushMidCfg
 from mqe.envs.configs.go1_push_upper_config import Go1PushUpperCfg
 
 
+
 # wrappers
 from mqe.envs.wrappers.empty_wrapper import EmptyWrapper
 from mqe.envs.wrappers.go1_push_mid_wrapper import Go1PushMidWrapper
 from mqe.envs.wrappers.go1_push_upper_wrapper import Go1PushUpperWrapper
+from mqe.envs.wrappers.go1_multiobject_wrapper import Go1MultiObjectWrapper
 
 from mqe.utils import make_env
 
@@ -28,7 +31,12 @@ ENV_DICT = {
         "class": Go1Object,
         "config": Go1PushUpperCfg,
         "wrapper": Go1PushUpperWrapper
-    },     
+    },   
+    "go1multiobject": {
+        "class": Go1MultiObject,
+        "config": Go1PushMidCfg,
+        "wrapper": Go1MultiObjectWrapper
+    },  
 }
 
 def make_mqe_env(env_name: str, args=None, custom_cfg=None) -> Tuple[LeggedRobotField, LeggedRobotFieldCfg]:
