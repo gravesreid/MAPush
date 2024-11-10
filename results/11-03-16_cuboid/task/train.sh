@@ -1,4 +1,4 @@
-exp_name="cylinder"
+exp_name="cuboid"
 current_dir=$(pwd)
 algo="ppo"
 script_path=$(realpath "${BASH_SOURCE[0]}")
@@ -11,14 +11,14 @@ python ./openrl_ws/update_config.py --filepath $script_dir/config.py
 
 if [ $test_mode = False ]; then
     # train
-    num_envs=100
-    num_steps=100000000
+    num_envs=50 ## original 500, reduced due to insufficient GPU memory
+    num_steps=100000000 ## original: 100000000  
     checkpoint=/None  # "/results/07-28-13_task1/checkpoints/rl_model_100000000_steps/module.pt"
 
     python ./openrl_ws/train.py  --num_envs $num_envs --train_timesteps $num_steps\
     --algo $algo \
     --config ./openrl_ws/cfgs/ppo.yaml \
-    --seed 16 \
+    --seed 1 \
     --exp_name  $exp_name \
     --task go1push_mid \
     --use_tensorboard \
@@ -32,6 +32,7 @@ if [ $test_mode = False ]; then
     done
     target_dir=$current_dir/results
     last_folder=$(ls -d $target_dir/*/ | sort | tail -n 1)
+    echo "last_folder: $last_folder"
     for step in "${steps[@]}"; do
         filename="rl_model_${step}_steps/module.pt"
         test_checkpoint="$last_folder/checkpoints/$filename"
@@ -46,7 +47,7 @@ if [ $test_mode = False ]; then
 else
 # test
 root_dir=$(dirname "$script_dir")
-filename="rl_model_70000000_steps/module.pt"
+filename="rl_model_110000000_steps/module.pt"
 test_checkpoint="$root_dir/checkpoints/$filename"
 python ./openrl_ws/test.py --num_envs 1 \
         --algo "$algo" \

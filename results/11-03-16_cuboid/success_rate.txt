@@ -1,0 +1,380 @@
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_10000000_steps/module.pt
+success rate: 0.3766666650772095
+finished time: 15.815067291259766
+collision degree: 0.0
+collaboration degree: 0.18761251866817474
+success rate: 0.3766666650772095
+finished time: 15.815067291259766
+collision degree: 0.0
+collaboration degree: 0.18761251866817474
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_20000000_steps/module.pt
+success rate: 0.48000001907348633
+finished time: 13.823934555053711
+collision degree: 0.0
+collaboration degree: 0.30610430240631104
+success rate: 0.48000001907348633
+finished time: 13.823934555053711
+collision degree: 0.0
+collaboration degree: 0.30610430240631104
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_30000000_steps/module.pt
+success rate: 0.1133333370089531
+finished time: 18.61520004272461
+collision degree: 0.0
+collaboration degree: 0.13468164205551147
+success rate: 0.1133333370089531
+finished time: 18.61520004272461
+collision degree: 0.0
+collaboration degree: 0.13468164205551147
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_40000000_steps/module.pt
+success rate: 0.05000000074505806
+finished time: 19.360733032226562
+collision degree: 0.0
+collaboration degree: 0.04655507579445839
+success rate: 0.05000000074505806
+finished time: 19.360733032226562
+collision degree: 0.0
+collaboration degree: 0.04655507579445839
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_50000000_steps/module.pt
+success rate: 0.030000001192092896
+finished time: 19.551067352294922
+collision degree: 0.0
+collaboration degree: 0.07590439915657043
+success rate: 0.030000001192092896
+finished time: 19.551067352294922
+collision degree: 0.0
+collaboration degree: 0.07590439915657043
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_60000000_steps/module.pt
+success rate: 0.03666666895151138
+finished time: 19.46500015258789
+collision degree: 0.0
+collaboration degree: 0.06869623064994812
+success rate: 0.03666666895151138
+finished time: 19.46500015258789
+collision degree: 0.0
+collaboration degree: 0.06869623064994812
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_70000000_steps/module.pt
+success rate: 0.03999999910593033
+finished time: 19.45793342590332
+collision degree: 0.0
+collaboration degree: 0.05801417678594589
+success rate: 0.03999999910593033
+finished time: 19.45793342590332
+collision degree: 0.0
+collaboration degree: 0.05801417678594589
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_80000000_steps/module.pt
+success rate: 0.03666666895151138
+finished time: 19.484268188476562
+collision degree: 0.0
+collaboration degree: 0.06749283522367477
+success rate: 0.03666666895151138
+finished time: 19.484268188476562
+collision degree: 0.0
+collaboration degree: 0.06749283522367477
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_90000000_steps/module.pt
+success rate: 0.03333333507180214
+finished time: 19.535865783691406
+collision degree: 0.0
+collaboration degree: 0.09799126535654068
+success rate: 0.03333333507180214
+finished time: 19.535865783691406
+collision degree: 0.0
+collaboration degree: 0.09799126535654068
+-----------------------------------------------------
+Importing module 'gym_38' (/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1+cu121
+Device count 1
+/home/isaac/Desktop/projects/MAPush/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/isaac/.cache/torch_extensions/py38_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/isaac/.cache/torch_extensions/py38_cu121/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Loading extension module gymtorch...
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/isaac/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+/home/isaac/Desktop/projects/MAPush/openrl/openrl/runners/common/rl_agent.py:212: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.net.module = torch.load(path)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+record_video False
+---------------------------------------------------------------------------
+Loaded checkpoint from:  /home/isaac/Desktop/projects/MAPush/results/11-03-16_cuboid//checkpoints/rl_model_100000000_steps/module.pt
+success rate: 0.03666666895151138
+finished time: 19.508134841918945
+collision degree: 0.0
+collaboration degree: 0.093434177339077
+success rate: 0.03666666895151138
+finished time: 19.508134841918945
+collision degree: 0.0
+collaboration degree: 0.093434177339077
+-----------------------------------------------------
