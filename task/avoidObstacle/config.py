@@ -8,26 +8,65 @@ class Go1PushMidCfg(Go1Cfg):
         env_name = "go1push"
         num_envs = 10
         num_agents = 2
-        num_npcs = 2
+        num_npcs = 3
         episode_length_s = 20  
     
     # config of the robot 
+    #class asset(Go1Cfg.asset):
+    #    terminate_after_contacts_on = []
+    #    file_npc = "{LEGGED_GYM_ROOT_DIR}/resources/objects/Tblock/SuperSmallTblock.urdf"
+    #    vertex_list = [[-0.50,-0.25],[ 0.50,-0.25],
+    #                   [ 0.25, 0.75],[-0.25, 0.75],]
+    #    name_npc = "box"
+    #    npc_collision = True
+    #    fix_npc_base_link = False
+    #    npc_gravity = True
+    #    # target area
+    #    _terminate_after_contacts_on = []
+    #    _file_npc = "{LEGGED_GYM_ROOT_DIR}/resources/objects/target.urdf"
+    #    _name_npc = "target_area"
+    #    _npc_collision = False
+    #    _fix_npc_base_link = True
+    #    _npc_gravity = True
+    #    # obstacles
+    #    __terminate_after_contacts_on = []
+    #    __file_npc = "{LEGGED_GYM_ROOT_DIR}/resources/objects/obstacle.urdf"
+    #    __name_npc = "obstacle"
+    #    __npc_collision = True
+    #    __fix_npc_base_link = True
+    #    __npc_gravity = True
+
     class asset(Go1Cfg.asset):
-        terminate_after_contacts_on = []
-        file_npc = "{LEGGED_GYM_ROOT_DIR}/resources/objects/Tblock/SuperSmallTblock.urdf"
-        vertex_list = [[-0.50,-0.25],[ 0.50,-0.25],
-                       [ 0.25, 0.75],[-0.25, 0.75],]
-        name_npc = "box"
-        npc_collision = True
-        fix_npc_base_link = False
-        npc_gravity = True
-        # target area
-        _terminate_after_contacts_on = []
-        _file_npc = "{LEGGED_GYM_ROOT_DIR}/resources/objects/target.urdf"
-        _name_npc = "target_area"
-        _npc_collision = False
-        _fix_npc_base_link = True
-        _npc_gravity = True
+        npc_assets = [
+            {
+                "file_npc": "{LEGGED_GYM_ROOT_DIR}/resources/objects/Tblock/SuperSmallTblock.urdf",
+                "name_npc": "box",
+                "npc_collision": True,
+                "fix_npc_base_link": False,
+                "npc_gravity": True
+            },
+            {
+                "file_npc": "{LEGGED_GYM_ROOT_DIR}/resources/objects/target.urdf",
+                "name_npc": "target_area",
+                "npc_collision": False,
+                "fix_npc_base_link": True,
+                "npc_gravity": True
+            },
+            {
+                "file_npc": "{LEGGED_GYM_ROOT_DIR}/resources/objects/obstacle.urdf",
+                "name_npc": "obstacle",
+                "npc_collision": True,
+                "fix_npc_base_link": True,
+                "npc_gravity": True
+            }
+        ]
+        vertex_list =[
+            [-0.50,-0.25],
+            [ 0.50,-0.25],
+            [ 0.25, 0.75],
+            [-0.25, 0.75],
+        ]
+    
 
     # config of the terrain
     class terrain(Go1Cfg.terrain):
@@ -183,6 +222,14 @@ class Go1PushMidCfg(Go1Cfg):
             # target area
             init_state_class(
                 pos = [8.0, 0.0, 0.1],
+                rot = [0.0, 0.0, 0.0, 1.0],
+                # rot = [0.0, 0, 0.3827, 0.9238],
+                lin_vel = [0.0, 0.0, 0.0],
+                ang_vel = [0.0, 0.0, 0.0],
+            ),
+            # obstacle
+            init_state_class(
+                pos = [10.0, 0.0, 0.1],
                 rot = [0.0, 0.0, 0.0, 1.0],
                 # rot = [0.0, 0, 0.3827, 0.9238],
                 lin_vel = [0.0, 0.0, 0.0],

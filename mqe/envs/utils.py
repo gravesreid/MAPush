@@ -35,8 +35,8 @@ ENV_DICT = {
     "go1multiobject": {
         "class": Go1MultiObject,
         "config": Go1PushMidCfg,
-        "wrapper": Go1MultiObjectWrapper
-    },  
+        "wrapper": Go1PushMidWrapper
+        },  
 }
 
 def make_mqe_env(env_name: str, args=None, custom_cfg=None) -> Tuple[LeggedRobotField, LeggedRobotFieldCfg]:

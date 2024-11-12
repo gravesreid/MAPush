@@ -1,22 +1,32 @@
-# go1_multiobject_wrapper.py
-
 import torch
+import numpy as np
 from gym import spaces
 from mqe.envs.wrappers.empty_wrapper import EmptyWrapper
 
 class Go1MultiObjectWrapper(EmptyWrapper):
     def __init__(self, env):
         super().__init__(env)
+        print(f"[Go1MultiObjectWrapper] Initialized. Type of env: {type(env)}")
+
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         self.num_npcs = getattr(self.cfg.env, "num_npcs", 0)
+        self.num_envs = getattr(self.cfg.env, "num_envs", 1)
+        self.num_agents = getattr(self.cfg, "num_agents", 1)
 
         # Adjust observation space based on the number of NPCs
-        obs_dim = 2 + 3 * self.num_agents + 3 * self.num_npcs  # Adjusted
-        self.observation_space = spaces.Box(low=-float('inf'), high=float('inf'), shape=(obs_dim,), dtype=float)
+        # Example calculation; adjust according to your actual observation dimensions
+        obs_dim = 2 + 3 * self.num_agents + 3 * self.num_npcs
+        self.observation_space = spaces.Box(
+            low=-float('inf'),
+            high=float('inf'),
+            shape=(obs_dim,),
+            dtype=np.float32
+        )
 
         # Action space remains the same unless agents can interact with NPCs
-        self.action_space = spaces.Box(low=-1, high=1, shape=(3,), dtype=float)
-        self.action_scale = torch.tensor([[[0.5, 0.5, 0.5],]], device=self.device).repeat(self.num_envs, self.num_agents, 1)
+        self.action_space = spaces.Box(low=-1, high=1, shape=(3,), dtype=np.float32)
+        self.action_scale = torch.tensor([[[0.5, 0.5, 0.5]]], device=self.device).repeat(self.num_envs, self.num_agents, 1)
 
         # Initialize reward scales (update as necessary)
         self.approach_reward_scale = self.cfg.rewards.scales.approach_reward_scale
@@ -31,16 +41,35 @@ class Go1MultiObjectWrapper(EmptyWrapper):
         self.reward_buffer = {
             "distance_to_target_reward": 0,
             "exception_punishment": 0,
-            "approach_to_npc_reward": torch.zeros(self.num_npcs, device=self.device),  # Adjusted
-            "collision_punishment": torch.zeros(self.num_npcs, device=self.device),   # Adjusted
+            "approach_to_npc_reward": torch.zeros(self.num_npcs, device=self.device),
+            "collision_punishment": torch.zeros(self.num_npcs, device=self.device),
             "reach_target_reward": 0,
             "push_reward": 0,
             "ocb_reward": 0,
             "step_count": 0,
         }
 
-    def _init_extras(self, obs):
-        pass
+        # Define collision threshold (adjust as needed)
+        self.collision_threshold = 1.0  # Example value
+
+    def reset(self, **kwargs):
+        """Reset all environments and convert observations to tensors."""
+        print("[Go1MultiObjectWrapper] Calling env.reset()")
+        obs = self.env.reset(**kwargs)
+        print(f"[Go1MultiObjectWrapper] Reset called. Type of obs: {type(obs)}")
+
+        if isinstance(obs, np.ndarray):
+            obs = torch.from_numpy(obs).float().to(self.device)
+            print("[Go1MultiObjectWrapper] Converted obs to tensor.")
+        elif isinstance(obs, dict):
+            # Handle dictionary observations if applicable
+            obs = {k: torch.from_numpy(v).float().to(self.device) for k, v in obs.items()}
+            print("[Go1MultiObjectWrapper] Converted dict obs to tensors.")
+        else:
+            print(f"[Go1MultiObjectWrapper] Unexpected obs type: {type(obs)}")
+
+        print(f"[Go1MultiObjectWrapper] Returning type: {type(obs)}")
+        return obs  # Return the tensor directly
 
     def _get_obs(self, observations):
         # Extract observations and concatenate NPC observations
