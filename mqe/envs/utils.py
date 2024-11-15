@@ -35,14 +35,16 @@ ENV_DICT = {
     "go1multiobject": {
         "class": Go1MultiObject,
         "config": Go1PushMidCfg,
-        "wrapper": Go1PushMidWrapper
+        "wrapper": Go1MultiObjectWrapper
         },  
 }
 
 def make_mqe_env(env_name: str, args=None, custom_cfg=None) -> Tuple[LeggedRobotField, LeggedRobotFieldCfg]:
     env_dict = ENV_DICT[env_name]
+    print(f'env dict: {env_dict}')
 
     if callable(custom_cfg):
+        print(f'environment {env_name} has custom config')
         env_dict["config"] = custom_cfg(env_dict["config"])
 
     env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)

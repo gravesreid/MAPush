@@ -17,7 +17,6 @@ class Go1MultiObject(Go1):
         self.asset_npcs = []
         self.npc_names = []
         npc_assets_cfg = getattr(self.cfg.asset, 'npc_assets', [])
-        print(f'Number of npc assets: {len(npc_assets_cfg)}')
         if len(npc_assets_cfg) != self.num_npcs:
             raise ValueError("The number of NPC assets must match the number of NPC initial states.")
 
@@ -35,6 +34,7 @@ class Go1MultiObject(Go1):
             asset_npc = self.gym.load_asset(self.sim, asset_root_npc, asset_file_npc, asset_options_npc)
             self.asset_npcs.append(asset_npc)
             self.npc_names.append(npc_cfg.get('name_npc', f'npc_{i}'))
+
 
         # Initialize NPC states
         init_state_list_npc = []

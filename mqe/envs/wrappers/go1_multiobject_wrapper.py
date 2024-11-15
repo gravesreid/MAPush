@@ -1,34 +1,67 @@
-import torch
-import numpy as np
+import gym
 from gym import spaces
+import numpy
+import torch
+from copy import copy,deepcopy
 from mqe.envs.wrappers.empty_wrapper import EmptyWrapper
+
+from isaacgym.torch_utils import *
+from isaacgym import gymapi, gymutil
+
+
+# tensor type
+def rotation_matrix_2D(theta):
+    theta = theta.float()
+    cos_theta = torch.cos(theta)  
+    sin_theta = torch.sin(theta)  
+
+    rotation_matrices = torch.stack([
+        torch.stack([cos_theta, -sin_theta], dim=1),
+        torch.stack([sin_theta, cos_theta], dim=1)
+    ], dim=1)
+
+    return rotation_matrices
+
+def euler_to_quaternion_tensor(euler_angles):
+    roll = euler_angles[:, 0]
+    pitch = euler_angles[:, 1]
+    yaw = euler_angles[:, 2]
+
+    cy = torch.cos(yaw * 0.5)
+    sy = torch.sin(yaw * 0.5)
+    cp = torch.cos(pitch * 0.5)
+    sp = torch.sin(pitch * 0.5)
+    cr = torch.cos(roll * 0.5)
+    sr = torch.sin(roll * 0.5)
+
+    qw = cr * cp * cy + sr * sp * sy
+    qx = sr * cp * cy - cr * sp * sy
+    qy = cr * sp * cy + sr * cp * sy
+    qz = cr * cp * sy - sr * sp * cy
+
+    quaternion = torch.stack([qx, qy, qz, qw], dim=1)
+    return quaternion
+
+def normalize_rpy(box_rpy):
+
+    box_rpy = box_rpy % (2 * torch.pi)
+    
+    return box_rpy
 
 class Go1MultiObjectWrapper(EmptyWrapper):
     def __init__(self, env):
         super().__init__(env)
-        print(f"[Go1MultiObjectWrapper] Initialized. Type of env: {type(env)}")
 
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-        self.num_npcs = getattr(self.cfg.env, "num_npcs", 0)
-        self.num_envs = getattr(self.cfg.env, "num_envs", 1)
-        self.num_agents = getattr(self.cfg, "num_agents", 1)
-
-        # Adjust observation space based on the number of NPCs
-        # Example calculation; adjust according to your actual observation dimensions
-        obs_dim = 2 + 3 * self.num_agents + 3 * self.num_npcs
-        self.observation_space = spaces.Box(
-            low=-float('inf'),
-            high=float('inf'),
-            shape=(obs_dim,),
-            dtype=np.float32
-        )
-
-        # Action space remains the same unless agents can interact with NPCs
-        self.action_space = spaces.Box(low=-1, high=1, shape=(3,), dtype=np.float32)
-        self.action_scale = torch.tensor([[[0.5, 0.5, 0.5]]], device=self.device).repeat(self.num_envs, self.num_agents, 1)
-
-        # Initialize reward scales (update as necessary)
+        if getattr(self.cfg.goal, "general_dist",False):
+            self.observation_space = spaces.Box(low=-float('inf'), high=float('inf'), shape=(5 + 3 * self.num_agents,), dtype=float)
+            pass
+        else:
+            self.observation_space = spaces.Box(low=-float('inf'), high=float('inf'), shape=(2 + self.num_npcs + 3 * self.num_agents,), dtype=float)
+        self.action_space = spaces.Box(low=-1, high=1, shape=(3,), dtype=float)
+        self.action_scale = torch.tensor([[[0.5, 0.5, 0.5],],], device="cuda").repeat(self.num_envs, self.num_agents, 1)
+        
+        # for hard setting of reward scales (not recommended)
+        
         self.approach_reward_scale = self.cfg.rewards.scales.approach_reward_scale
         self.target_reward_scale = self.cfg.rewards.scales.target_reward_scale
         self.reach_target_reward_scale = self.cfg.rewards.scales.reach_target_reward_scale
@@ -36,87 +69,390 @@ class Go1MultiObjectWrapper(EmptyWrapper):
         self.push_reward_scale = self.cfg.rewards.scales.push_reward_scale
         self.ocb_reward_scale = self.cfg.rewards.scales.ocb_reward_scale
         self.exception_punishment_scale = self.cfg.rewards.scales.exception_punishment_scale
-
-        # Initialize reward buffer for multiple NPCs
+        self.obstacle_hazard_level = 2.0
+        self.hazard_level_tensor = torch.tensor([self.obstacle_hazard_level], device=self.device).repeat(self.num_envs, self.num_agents, 1)
+        
         self.reward_buffer = {
             "distance_to_target_reward": 0,
             "exception_punishment": 0,
-            "approach_to_npc_reward": torch.zeros(self.num_npcs, device=self.device),
-            "collision_punishment": torch.zeros(self.num_npcs, device=self.device),
-            "reach_target_reward": 0,
-            "push_reward": 0,
-            "ocb_reward": 0,
+            "approach_to_box_reward": 0,
+            "collision_punishment":0,
+            "reach_target_reward":0,
+            "push_reward":0,
+            "ocb_reward":0,
             "step_count": 0,
         }
 
-        # Define collision threshold (adjust as needed)
-        self.collision_threshold = 1.0  # Example value
+    def _init_extras(self, obs):
+        print(f'self.observation_space.shape: {self.observation_space.shape}')
+        return
+        # self.gate_pos = obs.env_info["gate_deviation"]
+        # self.gate_pos[:, 0] += self.BarrierTrack_kwargs["init"]["block_length"] + self.BarrierTrack_kwargs["gate"]["block_length"] / 2
+        # self.gate_pos = self.gate_pos.unsqueeze(1).repeat(1, self.num_agents, 1)
+        # self.gate_distance = self.gate_pos.reshape(-1, 2)[:, 0]
 
-    def reset(self, **kwargs):
-        """Reset all environments and convert observations to tensors."""
-        print("[Go1MultiObjectWrapper] Calling env.reset()")
-        obs = self.env.reset(**kwargs)
-        print(f"[Go1MultiObjectWrapper] Reset called. Type of obs: {type(obs)}")
 
-        if isinstance(obs, np.ndarray):
-            obs = torch.from_numpy(obs).float().to(self.device)
-            print("[Go1MultiObjectWrapper] Converted obs to tensor.")
-        elif isinstance(obs, dict):
-            # Handle dictionary observations if applicable
-            obs = {k: torch.from_numpy(v).float().to(self.device) for k, v in obs.items()}
-            print("[Go1MultiObjectWrapper] Converted dict obs to tensors.")
+    def draw_bounding_box(self, box_pos, box_rpy, box_size, hazard_level):
+        scaled_box_size = [dim * hazard_level for dim in box_size]
+        center_pose = gymapi.Transform()
+        start_pose = gymapi.Transform()
+        center_pose.p = gymapi.Vec3(box_pos[0], box_pos[1], box_pos[2])
+        end_pose = gymapi.Transform()
+        end_pose.p = gymapi.Vec3(box_pos[0] + scaled_box_size[0], box_pos[1] + scaled_box_size[1], box_pos[2] + scaled_box_size[2])
+
+        # Define the corners of the bounding box
+        half_size = [dim / 2 for dim in scaled_box_size]
+
+        
+        color = gymapi.Vec3(1, 0, 0)
+
+        #gymutil.draw_line(center_pose.p, end_pose.p, color, self.env.gym, self.env.viewer, self.env.envs[0])
+
+        for i in range(4):
+            angle = i * numpy.pi / 2
+            angle = angle + numpy.pi / 4
+            start_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0]* numpy.cos(angle), center_pose.p.y + half_size[1] * numpy.sin(angle), center_pose.p.z)
+            end_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0] * numpy.cos(angle + numpy.pi/2), center_pose.p.y + half_size[1] * numpy.sin(angle + numpy.pi/2), center_pose.p.z)
+            gymutil.draw_line(start_pose.p, end_pose.p, color, self.env.gym, self.env.viewer, self.env.envs[0])
+            
+        
+
+
+
+
+    def calc_normal_vector_for_obc_reward(self, vertex_list, pos_tensor):
+        pos_tensor = pos_tensor.to(self.device)
+        vertices = torch.tensor(vertex_list, device=self.device).float()
+        num_vertices = vertices.shape[0]
+
+        edges = torch.roll(vertices, -1, dims=0) - vertices
+        vp = pos_tensor[:, None, :] - vertices[None, :, :]
+
+        edges_expanded = edges[None, :, :].repeat(pos_tensor.shape[0], 1, 1)
+        edge_lengths = torch.norm(edges_expanded, dim=2, keepdim=True)
+        edge_unit = edges_expanded / edge_lengths
+        edge_normals = torch.stack([-edge_unit[:,:,1], edge_unit[:,:,0]], dim=2)
+
+        cross_prod = torch.abs(vp[:,:,0] * edge_unit[:,:,1] - vp[:,:,1] * edge_unit[:,:,0])
+        dot_product1 = (vp * edges_expanded).sum(dim=2)
+        dot_product2 = (torch.roll(vp, -1, dims=1) * edges_expanded).sum(dim=2)
+
+        on_segment = (dot_product1 >= 0) & (dot_product2 <= 0)
+        dist_to_line = torch.where(on_segment, cross_prod, torch.tensor(float('inf'), device=self.device))
+
+        dist_to_vertex1 = torch.norm(vp, dim=2)
+        dist_to_vertex2 = torch.norm(pos_tensor[:, None, :] - torch.roll(vertices, -1, dims=0)[None, :, :], dim=2)
+
+        min_dist_each_edge, indices = torch.min(torch.stack([dist_to_line, dist_to_vertex1, dist_to_vertex2], dim=-1), dim=2)
+        min_dist, indices = torch.min(min_dist_each_edge,dim=1)
+        selected_normals = edge_normals[0][indices]
+
+        return selected_normals
+    
+    def reset(self,next_target_pos=None):
+        if getattr(self.cfg.goal, "received_goal_pos",False):
+            if next_target_pos == None:
+                pass
+                # raise ValueError("next_target_pos is required when received_goal_pos is True")
+            self.next_target_pos = next_target_pos
+
+        obs_buf = self.env.reset()
+
+        # get agent state
+        base_pos = deepcopy(obs_buf.base_pos) 
+        base_rpy = deepcopy(obs_buf.base_rpy) 
+        # get box state and target pos
+        npc_pos = self.root_states_npc[:, :3].reshape(self.num_envs, self.num_npcs, -1)
+        box_pos = npc_pos[:,0,:] - self.env.env_origins
+        target_pos = npc_pos[:,1,:] - self.env.env_origins 
+        obstacle_pos = npc_pos[:,2,:] - self.env.env_origins
+        print(f'obstacle_pos shape: {obstacle_pos.shape}')
+        box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]
+        box_rpy = torch.stack(get_euler_xyz(box_qyaternion), dim=1)
+        target_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 1 , 3:7]
+        target_rpy = torch.stack(get_euler_xyz(target_qyaternion), dim=1)
+        obstacle_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 2 , 3:7]
+        obstacle_rpy = torch.stack(get_euler_xyz(obstacle_qyaternion), dim=1)
+
+        # rotate box state and target pos to agent's local state
+        box_pos = box_pos.repeat_interleave(self.num_agents, dim=0)
+        target_pos = target_pos.repeat_interleave(self.num_agents, dim=0)
+        box_rpy = box_rpy.repeat_interleave(self.num_agents, dim=0)
+        target_rpy = target_rpy.repeat_interleave(self.num_agents, dim=0)
+        obstacle_pos = obstacle_pos.repeat_interleave(self.num_agents, dim=0)
+        obstacle_rpy = obstacle_rpy.repeat_interleave(self.num_agents, dim=0)
+        rotated_box_pos = torch.stack([(box_pos[:, 0] - base_pos[:, 0]) * torch.cos(-base_rpy[:, 2]) - (box_pos[:, 1] - base_pos[:, 1]) * torch.sin(-base_rpy[:, 2]),
+                                       (box_pos[:, 0] - base_pos[:, 0]) * torch.sin(-base_rpy[:, 2]) + (box_pos[:, 1] - base_pos[:, 1]) * torch.cos(-base_rpy[:, 2]),
+                                      box_pos[:, 2]], dim=1)
+        rotated_target_pos = torch.stack([(target_pos[:, 0] - base_pos[:, 0]) * torch.cos(-base_rpy[:, 2]) - (target_pos[:, 1] - base_pos[:, 1]) * torch.sin(-base_rpy[:, 2]),
+                                          (target_pos[:, 0] - base_pos[:, 0]) * torch.sin(-base_rpy[:, 2]) + (target_pos[:, 1] - base_pos[:, 1]) * torch.cos(-base_rpy[:, 2]),
+                                         target_pos[:, 2]], dim=1)
+        rotated_obstacle_pos = torch.stack([(obstacle_pos[:, 0] - base_pos[:, 0]) * torch.cos(-base_rpy[:, 2]) - (obstacle_pos[:, 1] - base_pos[:, 1]) * torch.sin(-base_rpy[:, 2]),
+                                          (obstacle_pos[:, 0] - base_pos[:, 0]) * torch.sin(-base_rpy[:, 2]) + (obstacle_pos[:, 1] - base_pos[:, 1]) * torch.cos(-base_rpy[:, 2]),
+                                         obstacle_pos[:, 2]], dim=1)
+        rotated_box_rpy = deepcopy(box_rpy)
+        rotated_box_rpy[:,2] = box_rpy[:,2] - base_rpy[:,2]
+        rotated_box_rpy = normalize_rpy(rotated_box_rpy)
+        rotated_target_rpy = deepcopy(target_rpy)
+        rotated_target_rpy[:,2] = target_rpy[:,2] - base_rpy[:,2]
+        rotated_target_rpy = normalize_rpy(rotated_target_rpy)
+        rotated_obstacle_rpy = deepcopy(obstacle_pos)
+        rotated_obstacle_rpy[:,2] = obstacle_rpy[:,2] - base_rpy[:,2]
+        rotated_obstacle_rpy = normalize_rpy(rotated_obstacle_rpy)
+        rotated_box_pos = rotated_box_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_box_rpy = rotated_box_rpy.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_target_pos = rotated_target_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_target_rpy = rotated_target_rpy.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_obstacle_pos = rotated_obstacle_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_obstacle_rpy = rotated_obstacle_rpy.reshape([self.env.num_envs, self.env.num_agents, -1])
+
+        # rotate other agents' state to agent's local state
+        base_pos = base_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
+        base_rpy = base_rpy.reshape([self.env.num_envs, self.env.num_agents, -1])
+        base_info = torch.cat([base_pos, base_rpy], dim=2)
+        all_base_info = []
+        if self.num_agents != 1:
+            for i in range(1, self.env.num_agents):
+                other_base_info = deepcopy(torch.roll(base_info, i, dims=1))
+                # roate other agents' state to agent's local state
+                other_base_pos = torch.stack([(other_base_info[:, :, 0] - base_pos[:, :, 0]) * torch.cos(-base_rpy[:, :, 2]) - (other_base_info[:, :, 1] - base_pos[:, :, 1]) * torch.sin(-base_rpy[:, :, 2]),
+                                              (other_base_info[:, :, 0] - base_pos[:, :, 0]) * torch.sin(-base_rpy[:, :, 2]) + (other_base_info[:, :, 1] - base_pos[:, :, 1]) * torch.cos(-base_rpy[:, :, 2]),
+                                              other_base_info[:, :, 2]], dim=2)
+                other_base_rpy = deepcopy(other_base_info[:, :, 3:6])
+                other_base_rpy[:, :, 2] = other_base_info[:, :, 5] - base_rpy[:, :, 2]
+                other_base_rpy = normalize_rpy(other_base_rpy)
+                other_base_info = torch.cat([other_base_pos[:,:,:2], other_base_rpy[:,:,2].unsqueeze(2)], dim=2)
+                all_base_info.append(other_base_info)
+            all_base_info = torch.cat(all_base_info, dim=2)
+        print(f'rotated_target_pos[:,:,:2].shape: {rotated_target_pos[:,:,:2].shape}')
+        print(f'self.hazard_level_tensor.shape: {self.hazard_level_tensor.shape}')
+        if getattr(self.cfg.goal, "general_dist", False):
+            obs = torch.cat([rotated_target_pos[:,:,:2], rotated_target_rpy[:,:,2].unsqueeze(2), rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), rotated_obstacle_pos[:,:,2], all_base_info], dim=2)
         else:
-            print(f"[Go1MultiObjectWrapper] Unexpected obs type: {type(obs)}")
-
-        print(f"[Go1MultiObjectWrapper] Returning type: {type(obs)}")
-        return obs  # Return the tensor directly
-
-    def _get_obs(self, observations):
-        # Extract observations and concatenate NPC observations
-        agent_obs = observations['agents']  # Shape: [num_envs, num_agents, obs_dim]
-        npc_obs = observations['npcs']      # Shape: [num_envs, num_npcs, obs_dim]
-
-        # Flatten observations
-        agent_obs_flat = agent_obs.view(self.num_envs, -1)
-        npc_obs_flat = npc_obs.view(self.num_envs, -1)
-
-        # Combine agent and NPC observations
-        obs = torch.cat([agent_obs_flat, npc_obs_flat], dim=1)
+            if all_base_info == []:
+                obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2)], rotated_obstacle_pos[:,:,2], dim=2)
+            else:
+                obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info, rotated_obstacle_pos[:,:,:2], self.hazard_level_tensor], dim=2)
+        self.last_box_state = None
+        print(f'obs shape: {obs.shape}')
         return obs
 
-    def _compute_reward(self, observations, actions, done):
-        # Compute rewards based on distances to NPCs, collisions, etc.
-        approach_rewards = torch.zeros(self.num_envs, device=self.device)
-        collision_punishments = torch.zeros(self.num_envs, device=self.device)
+    def step(self, action, next_target_pos=None):
+        self.draw_bounding_box(self.root_states_npc[2, :3], self.root_states_npc[2, 3:6], [1, 1, 1], self.obstacle_hazard_level)
+        if next_target_pos is not None:
+            assert next_target_pos.shape == (self.num_envs, 3)
+            assert self.cfg.generalize_obsersation.rotate_obs
+            assert self.cfg.goal.received_goal_pos
 
-        for i in range(self.num_npcs):
-            # Compute distance between agent and NPC[i]
-            npc_pos = observations['npcs'][:, i, :3]  # NPC positions
-            agent_pos = observations['agents'][:, 0, :3]  # Assuming single agent
-            distance = torch.norm(agent_pos - npc_pos, dim=1)
+        if getattr(self.cfg.goal, "received_goal_pos",False):
+            if next_target_pos is None:
+                raise ValueError("next_target_pos is required when received_goal_pos is True")
+            self.env.next_target_pos = next_target_pos
 
-            # Update rewards
-            approach_rewards += self.approach_reward_scale / (distance + 1e-6)
-            # Check for collisions and update punishments
-            collision = (distance < self.collision_threshold).float()
-            collision_punishments -= collision * self.collision_punishment_scale
+        action = torch.clip(action, -1.0, 1.0)
+        if getattr(self.cfg.goal, "received_goal_pos",False):
+            if torch.any(self.env.stop_buf):
+                action[self.env.stop_buf] = torch.tensor([0., 0., 0.], device=self.device).repeat(self.stop_buf.sum().item(), self.num_agents, 1)
+        # set static action
+        # action = torch.tensor([[1.0, 0.0, 0.0]], device="cuda").repeat(self.num_envs, 1, 1)
+        obs_buf, _, termination, info = self.env.step((action * self.action_scale).reshape(-1, self.action_space.shape[0]))
 
-        total_reward = approach_rewards + collision_punishments
-        self.reward_buffer['approach_to_npc_reward'] = approach_rewards
-        self.reward_buffer['collision_punishment'] = collision_punishments
+        # get agent state
+        base_pos = deepcopy(obs_buf.base_pos) 
+        base_rpy = deepcopy(obs_buf.base_rpy) 
+        # get box state and target pos
+        npc_pos = self.root_states_npc[:, :3].reshape(self.num_envs, self.num_npcs, -1)
+        box_pos = npc_pos[:,0,:] - self.env.env_origins
+        target_pos = npc_pos[:,1,:] - self.env.env_origins 
+        obstacle_pos = npc_pos[:,2,:] - self.env.env_origins
+        print(f'obstacle_pos shape: {obstacle_pos.shape}')
+        box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]
+        box_rpy = torch.stack(get_euler_xyz(box_qyaternion), dim=1)
+        target_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 1 , 3:7]
+        target_rpy = torch.stack(get_euler_xyz(target_qyaternion), dim=1)
 
-        return total_reward
+        # rotate box state and target pos to agent's local state
+        box_pos = box_pos.repeat_interleave(self.num_agents, dim=0)
+        target_pos = target_pos.repeat_interleave(self.num_agents, dim=0)
+        obstacle_pos = obstacle_pos.repeat_interleave(self.num_agents, dim=0)
+        box_rpy = box_rpy.repeat_interleave(self.num_agents, dim=0)
+        target_rpy = target_rpy.repeat_interleave(self.num_agents, dim=0)
+        rotated_box_pos = torch.stack([(box_pos[:, 0] - base_pos[:, 0]) * torch.cos(-base_rpy[:, 2]) - (box_pos[:, 1] - base_pos[:, 1]) * torch.sin(-base_rpy[:, 2]),
+                                       (box_pos[:, 0] - base_pos[:, 0]) * torch.sin(-base_rpy[:, 2]) + (box_pos[:, 1] - base_pos[:, 1]) * torch.cos(-base_rpy[:, 2]),
+                                      box_pos[:, 2]], dim=1)
+        rotated_target_pos = torch.stack([(target_pos[:, 0] - base_pos[:, 0]) * torch.cos(-base_rpy[:, 2]) - (target_pos[:, 1] - base_pos[:, 1]) * torch.sin(-base_rpy[:, 2]),
+                                          (target_pos[:, 0] - base_pos[:, 0]) * torch.sin(-base_rpy[:, 2]) + (target_pos[:, 1] - base_pos[:, 1]) * torch.cos(-base_rpy[:, 2]),
+                                         target_pos[:, 2]], dim=1)
+        rotated_obstacle_pos = torch.stack([(obstacle_pos[:, 0] - base_pos[:, 0]) * torch.cos(-base_rpy[:, 2]) - (obstacle_pos[:, 1] - base_pos[:, 1]) * torch.sin(-base_rpy[:, 2]),
+                                          (obstacle_pos[:, 0] - base_pos[:, 0]) * torch.sin(-base_rpy[:, 2]) + (obstacle_pos[:, 1] - base_pos[:, 1]) * torch.cos(-base_rpy[:, 2]),
+                                         obstacle_pos[:, 2]], dim=1)
+        rotated_box_rpy = deepcopy(box_rpy)
+        rotated_box_rpy[:,2] = box_rpy[:,2] - base_rpy[:,2]
+        rotated_box_rpy = normalize_rpy(rotated_box_rpy)
+        rotated_target_rpy = deepcopy(target_rpy)
+        rotated_target_rpy[:,2] = target_rpy[:,2] - base_rpy[:,2]
+        rotated_target_rpy = normalize_rpy(rotated_target_rpy)
+        rotated_box_pos = rotated_box_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_box_rpy = rotated_box_rpy.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_target_pos = rotated_target_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_target_rpy = rotated_target_rpy.reshape([self.env.num_envs, self.env.num_agents, -1])
+        rotated_obstacle_pos = rotated_obstacle_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
 
-    def step(self, actions):
-        observations, rewards, dones, infos = self.env.step(actions)
+        # rotate other agents' state to agent's local state
+        base_pos = base_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
+        base_rpy = base_rpy.reshape([self.env.num_envs, self.env.num_agents, -1])
+        base_info = torch.cat([base_pos, base_rpy], dim=2)
+        all_base_info = []
+        if self.num_agents != 1:
+            for i in range(1, self.env.num_agents):
+                other_base_info = deepcopy(torch.roll(base_info, i, dims=1))
+                # roate other agents' state to agent's local state
+                other_base_pos = torch.stack([(other_base_info[:, :, 0] - base_pos[:, :, 0]) * torch.cos(-base_rpy[:, :, 2]) - (other_base_info[:, :, 1] - base_pos[:, :, 1]) * torch.sin(-base_rpy[:, :, 2]),
+                                              (other_base_info[:, :, 0] - base_pos[:, :, 0]) * torch.sin(-base_rpy[:, :, 2]) + (other_base_info[:, :, 1] - base_pos[:, :, 1]) * torch.cos(-base_rpy[:, :, 2]),
+                                              other_base_info[:, :, 2]], dim=2)
+                other_base_rpy = deepcopy(other_base_info[:, :, 3:6])
+                other_base_rpy[:, :, 2] = other_base_info[:, :, 5] - base_rpy[:, :, 2]
+                other_base_rpy = normalize_rpy(other_base_rpy)
+                other_base_info = torch.cat([other_base_pos[:,:,:2], other_base_rpy[:,:,2].unsqueeze(2)], dim=2)
+                all_base_info.append(other_base_info)
+            all_base_info = torch.cat(all_base_info, dim=2)
 
-        # Get custom observations
-        obs = self._get_obs(observations)
+        if getattr(self.cfg.goal, "general_dist", False):
+            print(f'general_dist is false')
+            obs = torch.cat([rotated_target_pos[:,:,:2], rotated_target_rpy[:,:,2].unsqueeze(2), rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info], dim=2)
+        else:
+            if all_base_info == []:
+                print(f'all_base_info is empty')
+                obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2)], dim=2)
+            else:
+                print(f'all_base_info is not empty')
+                #obs_old = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info], dim=2)
+                # make observation that includes the obstacle
+                obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info, rotated_obstacle_pos[:,:,:2], self.hazard_level_tensor], dim=2)
+                print(f'obs shape: {obs.shape}')
 
-        # Compute custom rewards
-        rewards = self._compute_reward(observations, actions, dones)
+        # get env_id which should be reseted, because of nan or inf in obs and reward
+        self.value_exception_buf = torch.isnan(obs).any(dim=2).any(dim=1) \
+                                | torch.isinf(obs).any(dim=2).any(dim=1) \
+                                
+        # remove nan and inf in obs and reward
+        obs[torch.isnan(obs)] = 0
+        obs[torch.isinf(obs)] = 0
 
-        # Update infos if needed
-        infos['reward_buffer'] = self.reward_buffer.copy()
+        # calculate reward
+        box_state = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0]
+        target_state = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 1]
+        obstacle_state = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 2]
+        npc_pos = self.root_states_npc[:, :3].reshape(self.num_envs, self.num_npcs, -1)
+        box_pos = npc_pos[:,0,:] - self.env.env_origins
+        target_pos = npc_pos[:,1,:] - self.env.env_origins 
+        box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]
+        box_rpy = torch.stack(get_euler_xyz(box_qyaternion), dim=1)
+        target_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 1 , 3:7]
+        target_rpy = torch.stack(get_euler_xyz(target_qyaternion), dim=1)
 
-        return obs, rewards, dones, infos
+        base_pos = obs_buf.base_pos # (env_num, agent_num, 3)
+        base_vel = obs_buf.lin_vel # (env_num, agent_num, 3)
+        base_rpy = obs_buf.base_rpy # (env_num, agent_num, 3)
+        base_pos = base_pos.reshape([self.env.num_envs, self.env.num_agents, -1])
+        base_vel = base_vel.reshape([self.env.num_envs, self.env.num_agents, -1])
+        base_rpy = base_rpy.reshape([self.env.num_envs, self.env.num_agents, -1])
+
+        # occlude nan or inf
+        box_pos[torch.isnan(box_pos)] = 0
+        box_pos[torch.isinf(box_pos)] = 0
+        target_pos[torch.isnan(target_pos)] = 0
+        target_pos[torch.isinf(target_pos)] = 0
+        obstacle_pos[torch.isnan(obstacle_pos)] = 0
+        obstacle_pos[torch.isinf(obstacle_pos)] = 0
+        base_pos[torch.isnan(base_pos)] = 0
+        base_pos[torch.isinf(base_pos)] = 0
+        box_rpy[torch.isnan(box_rpy)] = 0
+        box_rpy[torch.isinf(box_rpy)] = 0
+
+        self.reward_buffer["step_count"] += 1
+        reward = torch.zeros([self.env.num_envs, self.num_agents], device=self.env.device)
+
+        # calculate reach target reward and set finish task termination
+        if self.reach_target_reward_scale != 0:
+            reward[self.finished_buf, :] += self.reach_target_reward_scale
+            self.reward_buffer["reach_target_reward"] += self.reach_target_reward_scale * self.finished_buf.sum().item()
+        
+        # calculate exception punishment
+        if self.exception_punishment_scale != 0:
+            reward[self.exception_buf, :] += self.exception_punishment_scale
+            reward[self.value_exception_buf, :] += self.exception_punishment_scale
+            # reward[self.time_out_buf, :] += self.exception_punishment_scale
+            self.reward_buffer["exception_punishment"] += self.exception_punishment_scale * \
+                    (self.exception_buf.sum().item()+self.value_exception_buf.sum().item())
+
+        # calculate distance from current_box_pos to target_box_pos reward
+        if self.target_reward_scale != 0:
+            if self.last_box_state is None:
+                self.last_box_state = copy(box_state)
+            past_distance = self.env.dist_calculator.cal_dist(self.last_box_state, target_state)
+            distance = self.env.dist_calculator.cal_dist(box_state, target_state)
+            distance_reward = self.target_reward_scale * 100 * (2 * (past_distance - distance) - 0.01 * distance)
+            reward[:, :] += distance_reward.unsqueeze(1).repeat(1, self.num_agents)
+            self.reward_buffer["distance_to_target_reward"] += torch.sum(distance_reward).cpu()
+
+        # calculate distance from each robot to box reward
+        if self.approach_reward_scale != 0:
+            reward_logger=[]
+            for i in range(self.num_agents):
+                distance = torch.norm(box_pos - base_pos[:, i, :], dim=1, keepdim=True)
+                distance_reward = (-(distance+0.5)**2) * self.approach_reward_scale
+                reward_logger.append(torch.sum(distance_reward).cpu())
+                reward[:, i] += distance_reward.squeeze(-1)
+            self.reward_buffer["approach_to_box_reward"] += np.sum(np.array(reward_logger)) 
+
+        # calculate collision punishment
+        if self.collision_punishment_scale != 0:
+            punishment_logger=[]
+            for i in range(self.num_agents):
+                for j in range(i+1, self.num_agents):
+                    distance = torch.norm(base_pos[:, i, :] - base_pos[:, j, :], dim=1, keepdim=True)
+                    collsion_punishment = (1 / (0.02 + distance/3)) * self.collision_punishment_scale
+                    punishment_logger.append(torch.sum(collsion_punishment).cpu())
+                    reward[:, i] += collsion_punishment.squeeze(-1)
+                    reward[:, j] += collsion_punishment.squeeze(-1)
+            self.reward_buffer["collision_punishment"] += np.sum(np.array(punishment_logger))
+
+        # calculate push reward for each agent
+        if self.push_reward_scale != 0:
+            push_reward = torch.zeros((self.env.num_envs,), device=self.env.device)
+            push_reward[torch.norm(self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 7:9],dim=1) > 0.1] = self.push_reward_scale
+            reward[:, :] += push_reward.unsqueeze(1).repeat(1, self.num_agents)
+            self.reward_buffer["push_reward"] += torch.sum(push_reward).cpu()
+            
+        # calculate OCB reward for each agent
+        if self.ocb_reward_scale != 0:
+            if getattr(self.cfg.rewards,"expanded_ocb_reward",False):
+                original_target_direction=(target_pos[:, :2] - box_pos[:, :2])/(torch.norm((target_pos[:, :2] - box_pos[:, :2]+0.01),dim=1,keepdim=True))
+                delta_yaw = target_rpy[:, 2] - box_rpy[:, 2]
+                # delta_yaw -->(-pi, pi)
+                delta_yaw = (delta_yaw + torch.pi) % (2 * torch.pi) - torch.pi
+                # rotate target direction by delta_yaw/2
+                target_direction = torch.stack([original_target_direction[:, 0] * torch.cos(-delta_yaw/2) - original_target_direction[:, 1] * torch.sin(-delta_yaw/2),
+                                                original_target_direction[:, 0] * torch.sin(-delta_yaw/2) + original_target_direction[:, 1] * torch.cos(-delta_yaw/2)], dim=1)
+                pass
+            else:
+                target_direction = (target_pos[:, :2] - box_pos[:, :2])/(torch.norm((target_pos[:, :2] - box_pos[:, :2]),dim=1,keepdim=True))
+            vertex_list=self.cfg.asset.vertex_list
+            reward_logger=[]
+            for i in range(self.num_agents):
+                gf_pos=base_pos[:, i, :2] - box_pos[:,:2]
+                rotation_matrix=rotation_matrix_2D( - box_rpy[:, 2])
+                box_relative_pos=torch.bmm(rotation_matrix,gf_pos.unsqueeze(2)).squeeze(2)
+                normal_vector=self.calc_normal_vector_for_obc_reward(vertex_list,box_relative_pos)
+                rotation_matrix=rotation_matrix_2D( box_rpy[:, 2])
+                normal_vector=torch.bmm(rotation_matrix,normal_vector.to(rotation_matrix.device).unsqueeze(2)).squeeze(2)
+                ocb_reward = torch.sum( target_direction * normal_vector, dim=1) * self.ocb_reward_scale
+                reward[:, i] += ocb_reward
+                reward_logger.append(torch.sum(ocb_reward).cpu())
+            self.reward_buffer["ocb_reward"] += np.sum(np.array(reward_logger))
+
+        self.last_box_state = deepcopy(box_state)
+
+
+        return obs, reward, termination, info

@@ -79,7 +79,7 @@ class Go1PushMidCfg(Go1Cfg):
         num_rows = 1
         num_cols = 1
 
-        map_size = [24.0, 24.0] # the size of the map
+        map_size = [16.0, 16.0] # the size of the map
         BarrierTrack_kwargs = merge_dict(Go1Cfg.terrain.BarrierTrack_kwargs, dict(
             options = [
                 "init",

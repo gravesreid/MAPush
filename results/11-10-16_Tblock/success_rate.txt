@@ -3613,3 +3613,2540 @@ Traceback (most recent call last):
   File "/home/reid/anaconda3/envs/mapush/lib/python3.8/subprocess.py", line 1780, in _try_wait
     (pid, sts) = os.waitpid(self.pid, wait_flags)
 KeyboardInterrupt
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1045, in _create_envs
+    robot_asset = self.gym.load_asset(self.sim, asset_root, asset_file, asset_options)
+KeyboardInterrupt
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 315, in create_sim
+    self.sim = self.gym.create_sim(self.sim_device_id, self.graphics_device_id, self.physics_engine, self.sim_params)
+KeyboardInterrupt
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 315, in create_sim
+    self.sim = self.gym.create_sim(self.sim_device_id, self.graphics_device_id, self.physics_engine, self.sim_params)
+KeyboardInterrupt
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 315, in create_sim
+    self.sim = self.gym.create_sim(self.sim_device_id, self.graphics_device_id, self.physics_engine, self.sim_params)
+KeyboardInterrupt
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 315, in create_sim
+    self.sim = self.gym.create_sim(self.sim_device_id, self.graphics_device_id, self.physics_engine, self.sim_params)
+KeyboardInterrupt
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 315, in create_sim
+    self.sim = self.gym.create_sim(self.sim_device_id, self.graphics_device_id, self.physics_engine, self.sim_params)
+KeyboardInterrupt
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 315, in create_sim
+    self.sim = self.gym.create_sim(self.sim_device_id, self.graphics_device_id, self.physics_engine, self.sim_params)
+KeyboardInterrupt
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 48, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+envirenment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 49, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'
+Importing module 'gym_38' (/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_38.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/reid/Downloads/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 2.4.1
+Device count 1
+/home/reid/Downloads/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/reid/.cache/torch_extensions/py38_cu124 as PyTorch extensions root...
+Emitting ninja build file /home/reid/.cache/torch_extensions/py38_cu124/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+Loading extension module gymtorch...
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:23: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(TreeValue)
+/home/reid/anaconda3/envs/mapush/lib/python3.8/site-packages/treevalue/tree/integration/torch.py:24: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  register_for_torch(FastTreeValue)
+env dict: {'class': <class 'mqe.envs.npc.go1_object.Go1Object'>, 'config': <class 'mqe.envs.configs.go1_push_mid_config.Go1PushMidCfg'>, 'wrapper': <class 'mqe.envs.wrappers.go1_push_mid_wrapper.Go1PushMidWrapper'>}
+environment go1push_mid has custom config
+Setting seed: 0
+Using LeggedRobotField.__init__, num_obs and num_privileged_obs will be computed instead of assigned.
+Traceback (most recent call last):
+  File "./openrl_ws/test.py", line 106, in <module>
+    env, _ = make_env(args, custom_cfg(args))
+  File "/home/reid/Projects/trustworthy_ai/MAPush/openrl_ws/utils.py", line 33, in make_env
+    env, env_cfg = make_mqe_env(args.task, args, custom_cfg=custom_cfg)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/utils.py", line 50, in make_mqe_env
+    env, env_cfg = make_env(env_dict["class"], env_dict["config"], args)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/utils/helpers.py", line 259, in make_env
+    env = task_class(   cfg=env_cfg,
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 22, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/go1/go1.py", line 24, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 21, in __init__
+    super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 76, in __init__
+    super().__init__(self.cfg, sim_params, physics_engine, sim_device, headless)
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/base_task.py", line 91, in __init__
+    self.create_sim()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 317, in create_sim
+    self._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/field/legged_robot_field.py", line 376, in _create_envs
+    return super()._create_envs()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/base/legged_robot.py", line 1057, in _create_envs
+    self._prepare_npc()
+  File "/home/reid/Projects/trustworthy_ai/MAPush/mqe/envs/npc/go1_object.py", line 39, in _prepare_npc
+    asset_path_npc = self.cfg.asset.file_npc.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+AttributeError: type object 'asset' has no attribute 'file_npc'

@@ -5,10 +5,13 @@ from openrl.utils.logger import Logger
 from openrl.utils.callbacks.checkpoint_callback import CheckpointCallback
 import shutil
 import os
+import torch
 
 from datetime import datetime
 
 def train(args):
+    # clear cache
+    torch.cuda.empty_cache()
 
     # cfg_parser = create_config_parser()
     # cfg = cfg_parser.parse_args()
@@ -33,7 +36,20 @@ def train(args):
         from openrl.modules.common import PPONet
         from openrl.runners.common import PPOAgent
         # initilize net and agent
+        # set args.num_enemies to 2
+        args.num_enemies = 2
         net = PPONet(env, cfg=args, device=args.rl_device)
+        #print('args.keys: ', args.__dict__.keys())
+        #print('args.num_agents: ', args.num_agents)
+        #print('args.num_enemies: ', args.num_enemies)
+        #print('args.use_obs_instead_of_state: ', args.use_obs_instead_of_state)
+        #print(f'args.hidden_size: {args.hidden_size}')
+        #print(f'args.mixer_hidden_dim: {args.mixer_hidden_dim}')
+        #print(f'ags.hypernet_hidden_dim: {args.hypernet_hidden_dim}')
+        #print(f'args.stacked_frames: {args.stacked_frames}')
+        #print(f'args.use_stacked_frames: {args.use_stacked_frames}')
+        #print('args', args)
+
         agent = PPOAgent(net)
         # initilize logger
         logger = Logger(
