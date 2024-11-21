@@ -66,17 +66,20 @@ class Go1MultiObjectWrapper(EmptyWrapper):
         self.target_reward_scale = self.cfg.rewards.scales.target_reward_scale
         self.reach_target_reward_scale = self.cfg.rewards.scales.reach_target_reward_scale
         self.collision_punishment_scale = self.cfg.rewards.scales.collision_punishment_scale
+        self.hazard_punishment_scale = self.cfg.rewards.scales.hazard_punishment_scale
         self.push_reward_scale = self.cfg.rewards.scales.push_reward_scale
         self.ocb_reward_scale = self.cfg.rewards.scales.ocb_reward_scale
         self.exception_punishment_scale = self.cfg.rewards.scales.exception_punishment_scale
-        self.obstacle_hazard_level = 2.0
-        self.hazard_level_tensor = torch.tensor([self.obstacle_hazard_level], device=self.device).repeat(self.num_envs, self.num_agents, 1)
+        # make obstacle hazard level a random integer between 1 and 3 for each environment
+        self.obstacle_hazard_level = numpy.random.randint(1, 4, (self.num_envs, 1)).repeat(self.num_agents, axis=1)
+        self.hazard_level_tensor = torch.tensor(self.obstacle_hazard_level, device=self.device).unsqueeze(2)
         
         self.reward_buffer = {
             "distance_to_target_reward": 0,
             "exception_punishment": 0,
             "approach_to_box_reward": 0,
             "collision_punishment":0,
+            "hazard_punishment":0,
             "reach_target_reward":0,
             "push_reward":0,
             "ocb_reward":0,
@@ -92,34 +95,31 @@ class Go1MultiObjectWrapper(EmptyWrapper):
         # self.gate_distance = self.gate_pos.reshape(-1, 2)[:, 0]
 
 
-    def draw_bounding_box(self, box_pos, box_rpy, box_size, hazard_level):
-        scaled_box_size = [dim * hazard_level for dim in box_size]
+    def draw_bounding_box(self, box_pos, box_rpy):
+        # clear the previous bounding box
+        self.env.gym.clear_lines(self.env.viewer)
+        obs_size = self.cfg.asset.obstacle_size
+        box_rpy = box_rpy.detach().cpu().numpy()
+        box_pos = box_pos.detach().cpu().numpy()
         center_pose = gymapi.Transform()
         start_pose = gymapi.Transform()
         center_pose.p = gymapi.Vec3(box_pos[0], box_pos[1], box_pos[2])
         end_pose = gymapi.Transform()
-        end_pose.p = gymapi.Vec3(box_pos[0] + scaled_box_size[0], box_pos[1] + scaled_box_size[1], box_pos[2] + scaled_box_size[2])
-
-        # Define the corners of the bounding box
-        half_size = [dim / 2 for dim in scaled_box_size]
-
-        
         color = gymapi.Vec3(1, 0, 0)
+        for i in range(self.num_envs):
+            scaled_box_size = [dim * self.obstacle_hazard_level[i][0] for dim in obs_size]
+            end_pose.p = gymapi.Vec3(box_pos[0] + scaled_box_size[0], box_pos[1] + scaled_box_size[1], box_pos[2] + scaled_box_size[2])
 
-        #gymutil.draw_line(center_pose.p, end_pose.p, color, self.env.gym, self.env.viewer, self.env.envs[0])
+            # Define the corners of the bounding box
+            half_size = [(dim / 2)*2**.5 for dim in scaled_box_size]
 
-        for i in range(4):
-            angle = i * numpy.pi / 2
-            angle = angle + numpy.pi / 4
-            start_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0]* numpy.cos(angle), center_pose.p.y + half_size[1] * numpy.sin(angle), center_pose.p.z)
-            end_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0] * numpy.cos(angle + numpy.pi/2), center_pose.p.y + half_size[1] * numpy.sin(angle + numpy.pi/2), center_pose.p.z)
-            gymutil.draw_line(start_pose.p, end_pose.p, color, self.env.gym, self.env.viewer, self.env.envs[0])
+            for i in range(4):
+                angle = i * numpy.pi / 2
+                angle = angle + numpy.pi / 4 + box_rpy[2]
+                start_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0]* numpy.cos(angle), center_pose.p.y + half_size[1] * numpy.sin(angle), center_pose.p.z + .5)
+                end_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0] * numpy.cos(angle + numpy.pi/2), center_pose.p.y + half_size[1] * numpy.sin(angle + numpy.pi/2), center_pose.p.z + .5)
+                gymutil.draw_line(start_pose.p, end_pose.p, color, self.env.gym, self.env.viewer, self.env.envs[0])
             
-        
-
-
-
-
     def calc_normal_vector_for_obc_reward(self, vertex_list, pos_tensor):
         pos_tensor = pos_tensor.to(self.device)
         vertices = torch.tensor(vertex_list, device=self.device).float()
@@ -166,7 +166,6 @@ class Go1MultiObjectWrapper(EmptyWrapper):
         box_pos = npc_pos[:,0,:] - self.env.env_origins
         target_pos = npc_pos[:,1,:] - self.env.env_origins 
         obstacle_pos = npc_pos[:,2,:] - self.env.env_origins
-        print(f'obstacle_pos shape: {obstacle_pos.shape}')
         box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]
         box_rpy = torch.stack(get_euler_xyz(box_qyaternion), dim=1)
         target_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 1 , 3:7]
@@ -224,21 +223,19 @@ class Go1MultiObjectWrapper(EmptyWrapper):
                 other_base_info = torch.cat([other_base_pos[:,:,:2], other_base_rpy[:,:,2].unsqueeze(2)], dim=2)
                 all_base_info.append(other_base_info)
             all_base_info = torch.cat(all_base_info, dim=2)
-        print(f'rotated_target_pos[:,:,:2].shape: {rotated_target_pos[:,:,:2].shape}')
-        print(f'self.hazard_level_tensor.shape: {self.hazard_level_tensor.shape}')
         if getattr(self.cfg.goal, "general_dist", False):
-            obs = torch.cat([rotated_target_pos[:,:,:2], rotated_target_rpy[:,:,2].unsqueeze(2), rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), rotated_obstacle_pos[:,:,2], all_base_info], dim=2)
+            obs = torch.cat([rotated_target_pos[:,:,:2], rotated_target_rpy[:,:,2].unsqueeze(2), rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), rotated_obstacle_pos[:,:,2], all_base_info, self.hazard_level_tensor], dim=2)
         else:
             if all_base_info == []:
-                obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2)], rotated_obstacle_pos[:,:,2], dim=2)
+                obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2)], rotated_obstacle_pos[:,:,2], self.hazard_level_tensor, dim=2)
             else:
                 obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info, rotated_obstacle_pos[:,:,:2], self.hazard_level_tensor], dim=2)
         self.last_box_state = None
-        print(f'obs shape: {obs.shape}')
         return obs
 
     def step(self, action, next_target_pos=None):
-        self.draw_bounding_box(self.root_states_npc[2, :3], self.root_states_npc[2, 3:6], [1, 1, 1], self.obstacle_hazard_level)
+        #print(f'hazard_level: {self.obstacle_hazard_level}')
+        self.draw_bounding_box(self.root_states_npc[2, :3], self.root_states_npc[2, 3:6])
         if next_target_pos is not None:
             assert next_target_pos.shape == (self.num_envs, 3)
             assert self.cfg.generalize_obsersation.rotate_obs
@@ -265,7 +262,6 @@ class Go1MultiObjectWrapper(EmptyWrapper):
         box_pos = npc_pos[:,0,:] - self.env.env_origins
         target_pos = npc_pos[:,1,:] - self.env.env_origins 
         obstacle_pos = npc_pos[:,2,:] - self.env.env_origins
-        print(f'obstacle_pos shape: {obstacle_pos.shape}')
         box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]
         box_rpy = torch.stack(get_euler_xyz(box_qyaternion), dim=1)
         target_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 1 , 3:7]
@@ -319,17 +315,15 @@ class Go1MultiObjectWrapper(EmptyWrapper):
 
         if getattr(self.cfg.goal, "general_dist", False):
             print(f'general_dist is false')
-            obs = torch.cat([rotated_target_pos[:,:,:2], rotated_target_rpy[:,:,2].unsqueeze(2), rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info], dim=2)
+            obs = torch.cat([rotated_target_pos[:,:,:2], rotated_target_rpy[:,:,2].unsqueeze(2), rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info, rotated_obstacle_pos[:,:,2], self.hazard_level_tensor], dim=2)
         else:
             if all_base_info == []:
                 print(f'all_base_info is empty')
-                obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2)], dim=2)
+                obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), rotated_obstacle_pos[:,:,:2], self.hazard_level_tensor], dim=2)
             else:
-                print(f'all_base_info is not empty')
                 #obs_old = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info], dim=2)
                 # make observation that includes the obstacle
                 obs = torch.cat([rotated_target_pos[:,:,:2], rotated_box_pos[:,:,:2], rotated_box_rpy[:,:,2].unsqueeze(2), all_base_info, rotated_obstacle_pos[:,:,:2], self.hazard_level_tensor], dim=2)
-                print(f'obs shape: {obs.shape}')
 
         # get env_id which should be reseted, because of nan or inf in obs and reward
         self.value_exception_buf = torch.isnan(obs).any(dim=2).any(dim=1) \
@@ -346,6 +340,7 @@ class Go1MultiObjectWrapper(EmptyWrapper):
         npc_pos = self.root_states_npc[:, :3].reshape(self.num_envs, self.num_npcs, -1)
         box_pos = npc_pos[:,0,:] - self.env.env_origins
         target_pos = npc_pos[:,1,:] - self.env.env_origins 
+        obstacle_pos = npc_pos[:,2,:] - self.env.env_origins
         box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]
         box_rpy = torch.stack(get_euler_xyz(box_qyaternion), dim=1)
         target_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 1 , 3:7]
@@ -417,6 +412,18 @@ class Go1MultiObjectWrapper(EmptyWrapper):
                     reward[:, i] += collsion_punishment.squeeze(-1)
                     reward[:, j] += collsion_punishment.squeeze(-1)
             self.reward_buffer["collision_punishment"] += np.sum(np.array(punishment_logger))
+
+        # calculate hazard level distance punishment
+        if self.hazard_punishment_scale != 0:
+            punishment_logger=[]
+            hazard_radius = self.hazard_level_tensor * 0.5 * self.cfg.asset.obstacle_size[0] * 2**.5
+            for i in range(self.num_agents):
+                center_distance = torch.norm(obstacle_pos - base_pos[:, i, :], dim=1, keepdim=True)
+                hazard_distance = torch.min(center_distance - hazard_radius[:,i,:], torch.tensor(0.0, device=self.device).repeat(self.num_envs, 1))
+                hazard_punishment = -hazard_distance * self.hazard_punishment_scale
+                punishment_logger.append(torch.sum(hazard_punishment).cpu())
+                reward[:, i] += hazard_punishment.squeeze(-1)
+            self.reward_buffer["hazard_punishment"] += np.sum(np.array(punishment_logger))
 
         # calculate push reward for each agent
         if self.push_reward_scale != 0:

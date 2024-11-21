@@ -66,6 +66,7 @@ class Go1PushMidCfg(Go1Cfg):
             [ 0.25, 0.75],
             [-0.25, 0.75],
         ]
+        obstacle_size = [.25, .25, .25]
     
 
     # config of the terrain
@@ -147,6 +148,7 @@ class Go1PushMidCfg(Go1Cfg):
             ocb_reward_scale = 0.004
             reach_target_reward_scale = 10
             exception_punishment_scale = -5
+            hazard_punishment_scale = 5
             # tracking_ang_vel = 0.05
             # world_vel_l2norm = -1.
             # legs_energy_substeps = -1e-5
@@ -155,6 +157,8 @@ class Go1PushMidCfg(Go1Cfg):
             # penetrate_volume = -3e-3
             # exceed_dof_pos_limits = -1e-1
             # exceed_torque_limits_i = -2e-1
+        class hazard_level:
+            hazard_level = np.random.choice([1,2,3])
 
     # goal setting
     class goal:
@@ -229,7 +233,7 @@ class Go1PushMidCfg(Go1Cfg):
             ),
             # obstacle
             init_state_class(
-                pos = [10.0, 0.0, 0.1],
+                pos = [12.0, -1.0, 0.1],
                 rot = [0.0, 0.0, 0.0, 1.0],
                 # rot = [0.0, 0, 0.3827, 0.9238],
                 lin_vel = [0.0, 0.0, 0.0],
@@ -261,6 +265,16 @@ class Go1PushMidCfg(Go1Cfg):
             y= [-0.01, 2 * np.pi],
         )
         friction_range = [0.6, 0.7]
+       # init_npc_pos_range = dict(                                     # obstacle_pos_randomlization
+       #     x= [-0.1, 0.1],
+       #     y= [-0.1, 0.1],
+       # )
+        init_hazard_pos_range = dict(                                     # obstacle_pos_randomlization
+              x= [-0.1, 0.1],
+              y= [-0.1, 0.1],
+       )
+        hazard_level = np.random.choice([1,2,3])
+        print("hazard_level: ", hazard_level)
 
     class test_metrics:
         collision_threshold = 1.8

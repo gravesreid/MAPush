@@ -530,6 +530,7 @@ class LeggedRobot(BaseTask):
                         _collision_flag[collision_flag] = check_collision_flag
                         collision_flag = _collision_flag
                     base_init_state_npc[box_ids] = box_init_state
+            
 
             if getattr(self.cfg.domain_rand, "init_npc_rpy_range", None) is not None:
                 base_init_state_npc[box_ids, 3:7]  = quat_from_euler_xyz(torch_rand_float(*self.cfg.domain_rand.init_npc_rpy_range["r"], (len(box_ids), 1), device=self.device),

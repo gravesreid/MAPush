@@ -170,6 +170,9 @@ class Go1PushUpperCfg(Go1Cfg):
                     )  
         obs1_pos = [0.0, 0.0, 0.0]
         obs2_pos = [0.0, 0.0, 0.0]
+        # make random hazard level
+        obs1_hazard_level = np.random.randint(1, 4)
+        obs2_hazard_level = np.random.randint(1, 4)
         check_setting = [static_obs_pos, random_obs_pos]
         if check_setting.count(True) != 1:
             raise ValueError("Only one of static_obs_pos, random_obs_pos can be True")

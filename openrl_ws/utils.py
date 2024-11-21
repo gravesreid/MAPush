@@ -132,6 +132,7 @@ class MATWrapper(gym.Wrapper):
     
     def reset(self, **kwargs):
         """Reset all environments."""
+        print('reset called in MATWrapper')
         return self.env.reset(**kwargs)
 
     def step(self, actions, extra_data: Optional[Dict[str, Any]] = None):

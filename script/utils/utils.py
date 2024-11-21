@@ -50,6 +50,7 @@ class mqe_openrl_wrapper(gym.Wrapper):
     def reset(self, **kwargs):
         """Reset all environments."""
         obs = self.env.reset()
+        print('environment reset in mqe_openrl_wrapper')
         return obs.cpu().numpy()
 
     def step(self, actions, extra_data: Optional[Dict[str, Any]] = None):
@@ -124,6 +125,7 @@ class MATWrapper(gym.Wrapper):
     
     def reset(self, **kwargs):
         """Reset all environments."""
+        print('environment reset in MATWrapper')
         return self.env.reset(**kwargs)
 
     def step(self, actions, extra_data: Optional[Dict[str, Any]] = None):
@@ -148,6 +150,7 @@ class SingleAgentWrapper(gym.Wrapper):
     def reset(self, **kwargs):
         """Reset all environments."""
         obs = self.env.reset(**kwargs)
+        print('environment reset in SingleAgentWrapper')
         return obs.reshape(self.num_envs, 1, -1)
 
     def step(self, actions, extra_data: Optional[Dict[str, Any]] = None):

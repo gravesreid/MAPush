@@ -65,7 +65,7 @@ def train(args):
         run_dir = str(logger.run_dir)
 
         # add config to log
-        if args.task == "go1push_mid":
+        if args.task == "go1push_mid" or args.task == "go1multiobject":
             source_folder = "./task/"+args.exp_name+"/"
             target_folder = run_dir + "/task/"
             shutil.copytree(source_folder, target_folder)
@@ -97,7 +97,7 @@ def train(args):
         agent.train(total_time_steps=args.train_timesteps)
 
     # move run_folder to result folder if training mid layer
-    if args.task == "go1push_mid":
+    if args.task == "go1push_mid" or args.task == "go1multiobject":
         source_folder = run_dir
         target_folder = "./results/"+start_time_str+"_"+args.exp_name+"/"
         shutil.copytree(source_folder, target_folder)
