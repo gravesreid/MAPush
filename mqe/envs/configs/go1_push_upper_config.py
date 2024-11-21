@@ -1,6 +1,7 @@
 import numpy as np
 from mqe.utils.helpers import merge_dict
 from mqe.envs.go1.go1 import Go1Cfg
+import torch
 
 class Go1PushUpperCfg(Go1Cfg):
 
@@ -45,6 +46,7 @@ class Go1PushUpperCfg(Go1Cfg):
         obs_npc_collision = True
         obs_fix_npc_base_link = True
         obs_npc_gravity = True
+        obstacle_size = [0.25, 0.25, 0.25]
 
     # config of the terrain
     class terrain(Go1Cfg.terrain):
@@ -114,6 +116,7 @@ class Go1PushUpperCfg(Go1Cfg):
             reach_target_reward_scale = 2
             exception_punishment_scale = -0.5
             obstacle_reward_scale = -0.1
+            hazard_punishment_scale = -0.5
 
     # goal setting
     class goal:
@@ -171,8 +174,8 @@ class Go1PushUpperCfg(Go1Cfg):
         obs1_pos = [0.0, 0.0, 0.0]
         obs2_pos = [0.0, 0.0, 0.0]
         # make random hazard level
-        obs1_hazard_level = np.random.randint(1, 4)
-        obs2_hazard_level = np.random.randint(1, 4)
+        obs1_hazard_level = torch.randint(1, 4, (1,)).item()
+        obs2_hazard_level = torch.randint(1, 4, (1,)).item()
         check_setting = [static_obs_pos, random_obs_pos]
         if check_setting.count(True) != 1:
             raise ValueError("Only one of static_obs_pos, random_obs_pos can be True")

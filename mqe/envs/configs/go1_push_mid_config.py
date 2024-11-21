@@ -148,7 +148,7 @@ class Go1PushMidCfg(Go1Cfg):
             ocb_reward_scale = 0.004
             reach_target_reward_scale = 10
             exception_punishment_scale = -5
-            hazard_punishment_scale = 5
+            hazard_punishment_scale = -10
             # tracking_ang_vel = 0.05
             # world_vel_l2norm = -1.
             # legs_energy_substeps = -1e-5
