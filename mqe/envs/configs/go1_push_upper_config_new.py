@@ -171,8 +171,8 @@ class Go1PushUpperCfg(Go1Cfg):
                         p= [-0.01, 0.01],
                         y= [-0.01, 2 * np.pi],
                     )  
-        obs1_pos = [4.0, 1.0, 0.1]
-        obs2_pos = [6.5, -2.0, 0.1]
+        obs1_pos = [0.0, 0.0, 0.0]
+        obs2_pos = [0.0, 0.0, 0.0]
         # make random hazard level
         obs1_hazard_level = torch.randint(1, 4, (1,)).item()
         obs2_hazard_level = torch.randint(1, 4, (1,)).item()

@@ -95,8 +95,8 @@ class Go1PushUpperWrapper(EmptyWrapper):
         self.planning = True
         self.reset_count = 0
 
-        #self.obs1_pos = torch.randn(self.num_envs, 3, device="cuda")
-        #self.obs2_pos = torch.randn(self.num_envs, 3, device="cuda")
+        self.obs1_pos = torch.randn(self.num_envs, 3, device="cuda")
+        self.obs2_pos = torch.randn(self.num_envs, 3, device="cuda")
       
         self.target_reward_scale = self.cfg.rewards.scales.target_reward_scale
         self.reach_target_reward_scale = self.cfg.rewards.scales.reach_target_reward_scale
@@ -139,11 +139,10 @@ class Go1PushUpperWrapper(EmptyWrapper):
             obs_size = self.cfg.asset.obstacle_size
             box_rpy_i = box_rpy[i,:].detach().cpu().numpy()
             box_pos_i = box_pos[i,:].detach().cpu().numpy()
-            print(f"box_pos_i in draw bounding box: {box_pos_i}")
             center_pose = gymapi.Transform()
             start_pose = gymapi.Transform()
+            print(f'box_pos shape: {box_pos.shape}')
             center_pose.p = gymapi.Vec3(box_pos_i[0], box_pos_i[1], box_pos_i[2])
-            print(f'center_pose.p: {center_pose.p}')
             end_pose = gymapi.Transform()
             color = gymapi.Vec3(1, 0, 0)
             for i in range(self.num_envs):
@@ -234,10 +233,7 @@ class Go1PushUpperWrapper(EmptyWrapper):
             y_lim = (-7, 7)
             self.rrt = KinodynamicRRT(x_lim=x_lim, y_lim=y_lim)
             vis = TwoDVisualizer()
-            # from config file- obstacle_state class
-            #obs1_pos_2d = self.cfg.obstacle_state.obs1_pos[:, :2]  
-            #obs2_pos_2d = self.cfg.obstacle_state.obs2_pos[:, :2] 
-            # try this
+
             obs1_pos_2d = self.cfg.obstacle_state.obs1_pos[:, :2]  
             obs2_pos_2d = self.cfg.obstacle_state.obs2_pos[:, :2] 
             obs_combined = torch.cat([obs1_pos_2d.unsqueeze(1), obs2_pos_2d.unsqueeze(1)], dim=1) 
@@ -268,17 +264,9 @@ class Go1PushUpperWrapper(EmptyWrapper):
         return obs
 
     def step(self, action):
-        self.env.gym.clear_lines(self.env.viewer)
-        print(f'obs1_pos in step: {self.obs1_pos}')
-        print(f'obs2_pos in step: {self.obs2_pos}')
-        self.draw_bounding_box(self.obs1_pos, self.obs1_rpy)
-        self.draw_bounding_box(self.obs2_pos, self.obs2_rpy)
-        print(f'obs_1 shape: {self.obs1_pos.shape}')
-        test_obs1 = torch.tensor([[4.0, 1.0, 0.1]]).to(self.device).repeat(self.num_envs, 1) - self.env.env_origins
-        test_obs2 = torch.tensor([[6.5, -2.0, 0.1]]).to(self.device).repeat(self.num_envs, 1) - self.env.env_origins
-        test_rpy = torch.tensor([[0.0, 0.0, 0.0, 1.0]]).to(self.device).repeat(self.num_envs, 1)
-        self.draw_bounding_box(test_obs1, test_rpy)
-        self.draw_bounding_box(test_obs2, test_rpy)
+        #self.env.gym.clear_lines(self.env.viewer)
+        #self.draw_bounding_box(self.obs1_pos, self.obs1_rpy)
+        #self.draw_bounding_box(self.obs2_pos, self.obs2_rpy)
         sub_goals = action.clone()
         sub_goals = torch.clip(sub_goals, -1, 1)
         sub_goals = sub_goals.squeeze(1)
@@ -295,10 +283,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
         base_rpy = deepcopy(self.obs_buf.base_rpy)  
         # get box state and target pos
         npc_pos = self.root_states_npc[:, :3].reshape(self.num_envs, self.num_npcs, -1)
-        self.obs1_pos = npc_pos[:,3,:] - self.env.env_origins
-        self.obs2_pos = npc_pos[:,4,:] - self.env.env_origins
-        print(f"obs1_pos in step: {self.obs1_pos}")
-        print(f"obs2_pos in step: {self.obs2_pos}")
         box_pos = npc_pos[:,0,:] - self.env.env_origins
         target_pos = npc_pos[:,1,:] - self.env.env_origins 
         box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]
@@ -384,7 +368,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
         # env reset
         reset_envs = (self.episode_length_buf == 0).nonzero(as_tuple=False).flatten()
         if len(reset_envs) > 0:
-            print(f'reset envs called')
             self.reset_target_positions(reset_envs)
             self.set_target_pos(self.final_target_pos)
             self.Planner.reset_trajectory(reset_envs, self.final_target_pos)
@@ -392,8 +375,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
             if self.num_obs > 0:
                 self.obs1_pos[reset_envs, :] = npc_pos[reset_envs , 3, :] - self.env.env_origins[reset_envs, :]
                 self.obs2_pos[reset_envs, :] = npc_pos[reset_envs , 4, :] - self.env.env_origins[reset_envs, :]
-                print(f"obs1_pos in step env reset: {self.obs1_pos}")
-                print(f"obs2_pos in step env reset: {self.obs2_pos}")
                 self.obs1_hazard_level = torch.randint(1, 4, (len(reset_envs), self.num_agents), device=self.device).unsqueeze(2)
                 self.obs2_hazard_level = torch.randint(1, 4, (len(reset_envs), self.num_agents), device=self.device).unsqueeze(2)
             else:

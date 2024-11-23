@@ -9,7 +9,6 @@ from openrl.modules.ppo_module import PPOModule
 from mqe.envs.wrappers.utils.rrt import KinodynamicRRT,TwoDVisualizer
 
 from isaacgym.torch_utils import *
-from isaacgym import gymapi, gymutil
 
 # convert tensor to numpy
 def _t2n(tensor):
@@ -87,7 +86,7 @@ class Go1PushUpperWrapper(EmptyWrapper):
     def __init__(self, env):
         super().__init__(env)
 
-        self.observation_space = spaces.Box(low=-float('inf'), high=float('inf'), shape=(30,), dtype=float)
+        self.observation_space = spaces.Box(low=-float('inf'), high=float('inf'), shape=(26,), dtype=float)
         self.action_space = spaces.Box(low=-1, high=1, shape=(2,), dtype=float)     # should be revised in openrl_ws/utils.py
         self.action_scale = torch.tensor([[[0.5, 0.5, 0.5],],], device="cuda").repeat(self.num_envs, self.num_agents, 1)
         self.net_origin = torch.tensor(self.cfg.generalize_obsersation.net_origin).to(self.device)
@@ -95,16 +94,14 @@ class Go1PushUpperWrapper(EmptyWrapper):
         self.planning = True
         self.reset_count = 0
 
-        #self.obs1_pos = torch.randn(self.num_envs, 3, device="cuda")
-        #self.obs2_pos = torch.randn(self.num_envs, 3, device="cuda")
+        self.obs1_pos = torch.randn(self.num_envs, 3, device="cuda")
+        self.obs2_pos = torch.randn(self.num_envs, 3, device="cuda")
       
         self.target_reward_scale = self.cfg.rewards.scales.target_reward_scale
         self.reach_target_reward_scale = self.cfg.rewards.scales.reach_target_reward_scale
         self.trajectory_rewards_scale = self.cfg.rewards.scales.trajectory_rewards_scale
         self.exception_punishment_scale = self.cfg.rewards.scales.exception_punishment_scale
         self.obstacle_reward_scale = self.cfg.rewards.scales.obstacle_reward_scale
-        self.obstacle_hazard_level = numpy.random.randint(1, 4, (self.num_envs, 1)).repeat(self.num_agents, axis=1)
-        self.hazard_level_tensor = torch.tensor(self.obstacle_hazard_level, device=self.device).unsqueeze(2)
 
         self.reward_buffer = {
             "distance_to_target_reward": 0,
@@ -113,7 +110,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
             "reach_target_reward":0,
             "trajectory_rewards":0,
             "step_count": 0,
-            "hazard_punishment": 0,
         }
 
         # init command policy
@@ -132,33 +128,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
 
     def _init_extras(self, obs):
         return
-
-    def draw_bounding_box(self, box_pos, box_rpy):
-        # clear the previous bounding box
-        for i in range(self.num_envs):
-            obs_size = self.cfg.asset.obstacle_size
-            box_rpy_i = box_rpy[i,:].detach().cpu().numpy()
-            box_pos_i = box_pos[i,:].detach().cpu().numpy()
-            print(f"box_pos_i in draw bounding box: {box_pos_i}")
-            center_pose = gymapi.Transform()
-            start_pose = gymapi.Transform()
-            center_pose.p = gymapi.Vec3(box_pos_i[0], box_pos_i[1], box_pos_i[2])
-            print(f'center_pose.p: {center_pose.p}')
-            end_pose = gymapi.Transform()
-            color = gymapi.Vec3(1, 0, 0)
-            for i in range(self.num_envs):
-                scaled_box_size = [dim * self.obstacle_hazard_level[i][0] for dim in obs_size]
-                end_pose.p = gymapi.Vec3(box_pos_i[0] + scaled_box_size[0], box_pos_i[1] + scaled_box_size[1], box_pos_i[2] + scaled_box_size[2])
-
-                # Define the corners of the bounding box
-                half_size = [(dim / 2)*2**.5 for dim in scaled_box_size]
-
-                for i in range(4):
-                    angle = i * numpy.pi / 2
-                    angle = angle + numpy.pi / 4 + box_rpy_i[2]
-                    start_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0]* numpy.cos(angle), center_pose.p.y + half_size[1] * numpy.sin(angle), center_pose.p.z + .5)
-                    end_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0] * numpy.cos(angle + numpy.pi/2), center_pose.p.y + half_size[1] * numpy.sin(angle + numpy.pi/2), center_pose.p.z + .5)
-                    gymutil.draw_line(start_pose.p, end_pose.p, color, self.env.gym, self.env.viewer, self.env.envs[0])
 
     def reset_target_positions(self, env_ids):
         new_positions = torch.randn(len(env_ids), 3, device="cuda")
@@ -187,10 +156,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
         # init obstacles position
         self.obs1_pos = npc_pos[:,3,:] - self.env.env_origins
         self.obs2_pos = npc_pos[:,4,:] - self.env.env_origins
-        obs1_quaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 3 , 3:7]
-        obs2_quaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 4 , 3:7]
-        self.obs1_rpy = torch.stack(get_euler_xyz(obs1_quaternion), dim=1)
-        self.obs2_rpy = torch.stack(get_euler_xyz(obs2_quaternion), dim=1)
         # (optional)
         # self.obs1_pos[:, 0] = torch.FloatTensor(self.num_envs).uniform_(0, 14).to("cuda")
         # self.obs2_pos[:, 0] = torch.FloatTensor(self.num_envs).uniform_(0, 14).to("cuda")
@@ -202,13 +167,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
         # self.obs2_pos[:, 2] = 0.1
         self.cfg.obstacle_state.obs1_pos = self.obs1_pos
         self.cfg.obstacle_state.obs2_pos = self.obs2_pos
-
-        # initialize hazard level for obstacles
-        self.obs1_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
-        self.obs2_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
-
-        self.cfg.obs1_hazard_level = self.obs1_hazard_level
-        self.cfg.obs2_hazard_level = self.obs2_hazard_level
         
         # init final goal position
         self.final_target_pos = torch.randn(self.num_envs, 3, device="cuda")
@@ -234,10 +192,7 @@ class Go1PushUpperWrapper(EmptyWrapper):
             y_lim = (-7, 7)
             self.rrt = KinodynamicRRT(x_lim=x_lim, y_lim=y_lim)
             vis = TwoDVisualizer()
-            # from config file- obstacle_state class
-            #obs1_pos_2d = self.cfg.obstacle_state.obs1_pos[:, :2]  
-            #obs2_pos_2d = self.cfg.obstacle_state.obs2_pos[:, :2] 
-            # try this
+
             obs1_pos_2d = self.cfg.obstacle_state.obs1_pos[:, :2]  
             obs2_pos_2d = self.cfg.obstacle_state.obs2_pos[:, :2] 
             obs_combined = torch.cat([obs1_pos_2d.unsqueeze(1), obs2_pos_2d.unsqueeze(1)], dim=1) 
@@ -261,24 +216,13 @@ class Go1PushUpperWrapper(EmptyWrapper):
                     concatenated_trace = torch.cat(planned_trace).unsqueeze(0)
                     self.trajectory[i, :] = interpolate_trajectory(concatenated_trace)
                 else:
-                    print("Failed to plan")
+                    print("Fail to plane")
 
         next_planning_position = self.Planner.update_next_planning_position(box_pos, self.trajectory)  
-        obs = torch.cat([base_info, target_pos[:, :2], box_pos[:, :2], box_rot, self.obs1_pos[:, :2], self.obs2_pos[:, :2], self.obs1_hazard_level.squeeze(), self.obs2_hazard_level.squeeze(), next_planning_position], dim=1).unsqueeze(1)
+        obs = torch.cat([base_info, target_pos[:, :2], box_pos[:, :2], box_rot, self.obs1_pos[:, :2], self.obs2_pos[:, :2], next_planning_position], dim=1).unsqueeze(1)
         return obs
 
     def step(self, action):
-        self.env.gym.clear_lines(self.env.viewer)
-        print(f'obs1_pos in step: {self.obs1_pos}')
-        print(f'obs2_pos in step: {self.obs2_pos}')
-        self.draw_bounding_box(self.obs1_pos, self.obs1_rpy)
-        self.draw_bounding_box(self.obs2_pos, self.obs2_rpy)
-        print(f'obs_1 shape: {self.obs1_pos.shape}')
-        test_obs1 = torch.tensor([[4.0, 1.0, 0.1]]).to(self.device).repeat(self.num_envs, 1) - self.env.env_origins
-        test_obs2 = torch.tensor([[6.5, -2.0, 0.1]]).to(self.device).repeat(self.num_envs, 1) - self.env.env_origins
-        test_rpy = torch.tensor([[0.0, 0.0, 0.0, 1.0]]).to(self.device).repeat(self.num_envs, 1)
-        self.draw_bounding_box(test_obs1, test_rpy)
-        self.draw_bounding_box(test_obs2, test_rpy)
         sub_goals = action.clone()
         sub_goals = torch.clip(sub_goals, -1, 1)
         sub_goals = sub_goals.squeeze(1)
@@ -295,10 +239,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
         base_rpy = deepcopy(self.obs_buf.base_rpy)  
         # get box state and target pos
         npc_pos = self.root_states_npc[:, :3].reshape(self.num_envs, self.num_npcs, -1)
-        self.obs1_pos = npc_pos[:,3,:] - self.env.env_origins
-        self.obs2_pos = npc_pos[:,4,:] - self.env.env_origins
-        print(f"obs1_pos in step: {self.obs1_pos}")
-        print(f"obs2_pos in step: {self.obs2_pos}")
         box_pos = npc_pos[:,0,:] - self.env.env_origins
         target_pos = npc_pos[:,1,:] - self.env.env_origins 
         box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]
@@ -384,7 +324,7 @@ class Go1PushUpperWrapper(EmptyWrapper):
         # env reset
         reset_envs = (self.episode_length_buf == 0).nonzero(as_tuple=False).flatten()
         if len(reset_envs) > 0:
-            print(f'reset envs called')
+            print('len(reset_envs):', len(reset_envs))
             self.reset_target_positions(reset_envs)
             self.set_target_pos(self.final_target_pos)
             self.Planner.reset_trajectory(reset_envs, self.final_target_pos)
@@ -392,10 +332,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
             if self.num_obs > 0:
                 self.obs1_pos[reset_envs, :] = npc_pos[reset_envs , 3, :] - self.env.env_origins[reset_envs, :]
                 self.obs2_pos[reset_envs, :] = npc_pos[reset_envs , 4, :] - self.env.env_origins[reset_envs, :]
-                print(f"obs1_pos in step env reset: {self.obs1_pos}")
-                print(f"obs2_pos in step env reset: {self.obs2_pos}")
-                self.obs1_hazard_level = torch.randint(1, 4, (len(reset_envs), self.num_agents), device=self.device).unsqueeze(2)
-                self.obs2_hazard_level = torch.randint(1, 4, (len(reset_envs), self.num_agents), device=self.device).unsqueeze(2)
             else:
                 self.obs1_pos[reset_envs, 0] = torch.FloatTensor(len(reset_envs)).uniform_(0, 9).to("cuda")
                 self.obs2_pos[reset_envs, 0] = torch.FloatTensor(len(reset_envs)).uniform_(0, 9).to("cuda")
@@ -428,17 +364,13 @@ class Go1PushUpperWrapper(EmptyWrapper):
             self.cfg.obstacle_state.obs1_pos[reset_envs, 1] = torch.FloatTensor(len(reset_envs)).uniform_(-7, 7).to("cuda")
             self.cfg.obstacle_state.obs2_pos[reset_envs, 1] = torch.FloatTensor(len(reset_envs)).uniform_(-7, 7).to("cuda")
 
-            self.cfg.obstacle_state.obs1_hazard_level = torch.randint(1, 4, (len(reset_envs), self.num_agents), device=self.device).unsqueeze(2)
-            self.cfg.obstacle_state.obs2_hazard_level = torch.randint(1, 4, (len(reset_envs), self.num_agents), device=self.device).unsqueeze(2)
-
             self.obs1_pos = self.cfg.obstacle_state.obs1_pos
             self.obs2_pos = self.cfg.obstacle_state.obs2_pos
 
             self.trajectory = self.Planner.get_trajectory(self.episode_length_buf)          
 
         next_planning_position = self.Planner.update_next_planning_position(box_pos, self.trajectory)  
-        obs = torch.cat([base_info, target_pos[:, :2], box_pos[:, :2], box_rot, self.obs1_pos[:, :2], self.obs2_pos[:, :2], self.obs1_hazard_level.squeeze(), self.obs2_hazard_level.squeeze(), next_planning_position], dim=1).unsqueeze(1)
-        #print(f'obs_shape: {obs.shape}')
+        obs = torch.cat([base_info, target_pos[:, :2], box_pos[:, :2], box_rot, self.obs1_pos[:, :2], self.obs2_pos[:, :2], next_planning_position], dim=1).unsqueeze(1)
         
         # remove nan and inf in obs and reward
         self.value_exception_buf = torch.isnan(obs).any(dim=2).any(dim=1) \
@@ -498,19 +430,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
             obstacle_reward = obstacle_reward.unsqueeze(1)
             reward[:, :] += obstacle_reward
             self.reward_buffer["obstacle_reward_scale"] += torch.sum(obstacle_reward).cpu()
-        
-        if self.hazard_punishment_scale != 0:
-            hazard_radius = self.hazard_level_tensor * 0.5 * self.cfg.asset.obstacle_size[0] * 2**.5
-            for i in range(self.num_agents):
-                obs1_center_distance = torch.norm(self.obs1_pos - base_pos[:, i, :], dim=1, keepdim=True)
-                obs1_hazard_distance = torch.min(obs1_center_distance - hazard_radius[:,i,:], torch.tensor(0.0, device=self.device).repeat(self.num_envs, 1))
-                obs1_hazard_punishment = -obs1_hazard_distance * self.hazard_punishment_scale
-                obs2_center_distance = torch.norm(self.obs2_pos - base_pos[:, i, :], dim=1, keepdim=True)
-                obs2_hazard_distance = torch.min(obs2_center_distance - hazard_radius[:,i,:], torch.tensor(0.0, device=self.device).repeat(self.num_envs, 1))
-                obs2_hazard_punishment = -obs2_hazard_distance * self.hazard_punishment_scale
-                hazard_punishment = obs1_hazard_punishment + obs2_hazard_punishment
-                reward[:, :] += hazard_punishment
-            self.reward_buffer["hazard_punishment"] += torch.sum(hazard_punishment).cpu()
 
         # calculate trajectory rewards
         if self.trajectory_rewards_scale != 0:
