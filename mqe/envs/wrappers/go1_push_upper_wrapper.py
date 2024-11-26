@@ -424,16 +424,27 @@ class Go1PushUpperWrapper(EmptyWrapper):
 
             self.cfg.obstacle_state.obs1_pos[reset_envs, 1] = torch.FloatTensor(len(reset_envs)).uniform_(-7, 7).to("cuda")
             self.cfg.obstacle_state.obs2_pos[reset_envs, 1] = torch.FloatTensor(len(reset_envs)).uniform_(-7, 7).to("cuda")
+            self.obstacle_hazard_level = numpy.random.randint(1, 4, (self.num_envs, 1)).repeat(self.num_agents, axis=1)
+            self.cfg.obstacle_state.obs1_hazard_level = torch.tensor(self.obstacle_hazard_level, device=self.device).unsqueeze(2).unsqueeze(3)
+            self.cfg.obstacle_state.obs2_hazard_level = torch.tensor(self.obstacle_hazard_level, device=self.device).unsqueeze(2).unsqueeze(3)
 
-            self.cfg.obstacle_state.obs1_hazard_level = torch.randint(1, 4, (len(reset_envs), self.num_agents), device=self.device).unsqueeze(2)
-            self.cfg.obstacle_state.obs2_hazard_level = torch.randint(1, 4, (len(reset_envs), self.num_agents), device=self.device).unsqueeze(2)
+            print(f'base_info shape: {base_info.shape}')
+            print(f'target_pos shape: {target_pos[:, :2].shape}')
+            print(f'box_pos shape: {box_pos[:, :2].shape}')
+            print(f'box_rot shape: {box_rot.shape}')
+            print(f'obs1_pos shape: {self.obs1_pos[:, :2].shape}')
+            print(f'obs2_pos shape: {self.obs2_pos[:, :2].shape}')
+            print(f'obs1_hazard_level shape: {self.obs1_hazard_level.squeeze().shape}')
+            print(f'obs2_hazard_level shape: {self.obs2_hazard_level.squeeze().shape}')
+            #print(f'next_planning_position shape: {next_planning_position.shape}')
 
-            self.obs1_pos = self.cfg.obstacle_state.obs1_pos
-            self.obs2_pos = self.cfg.obstacle_state.obs2_pos
 
-            self.trajectory = self.Planner.get_trajectory(self.episode_length_buf)          
+            self.trajectory = self.Planner.get_trajectory(self.episode_length_buf)   
+            print(f'trajectory shape: {self.trajectory.shape}')       
 
         next_planning_position = self.Planner.update_next_planning_position(box_pos, self.trajectory)  
+        if len(reset_envs) > 0:
+            print(f'next_planning_position shape: {next_planning_position.shape}')
         obs = torch.cat([base_info, target_pos[:, :2], box_pos[:, :2], box_rot, self.obs1_pos[:, :2], self.obs2_pos[:, :2], self.obs1_hazard_level.squeeze(), self.obs2_hazard_level.squeeze(), next_planning_position], dim=1).unsqueeze(1)
         #print(f'obs_shape: {obs.shape}')
         
