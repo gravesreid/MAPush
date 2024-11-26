@@ -165,8 +165,6 @@ class Go1PushUpperWrapper(EmptyWrapper):
 
         # self.obs1_pos[:, 2] = 0.1
         # self.obs2_pos[:, 2] = 0.1
-        self.cfg.obstacle_state.obs1_pos = self.obs1_pos
-        self.cfg.obstacle_state.obs2_pos = self.obs2_pos
         
         # init final goal position
         self.final_target_pos = torch.randn(self.num_envs, 3, device="cuda")
