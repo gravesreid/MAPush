@@ -124,6 +124,11 @@ class TwoDVisualizer:
         self.fig.canvas.draw()
         self.fig.canvas.flush_events()
     
+    def draw_line(self, start, end, color='r'):
+        self.ax.plot([start[0], end[0]], [start[1], end[1]], color=color)
+        self.fig.canvas.draw()
+        self.fig.canvas.flush_events()
+    
     def clear(self):
         self.ax.cla()
         self.fig.canvas.draw()

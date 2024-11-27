@@ -133,7 +133,7 @@ class Go1PushUpperWrapper(EmptyWrapper):
     def _init_extras(self, obs):
         return
 
-    def draw_bounding_box(self, box_pos, box_rpy):
+    def draw_bounding_box(self, box_pos, box_rpy, hazard_level):
         # clear the previous bounding box
         obs_size = self.cfg.asset.obstacle_size
         # make gym api transform objects
@@ -154,7 +154,7 @@ class Go1PushUpperWrapper(EmptyWrapper):
             color = gymapi.Vec3(1, 0, 0)
 
             # draw a bounding box for each obstacle in the environment
-            scaled_box_size = [dim * self.obstacle_hazard_level[i][0] for dim in obs_size]
+            scaled_box_size = [dim * hazard_level[i][0] for dim in obs_size]
             end_pose.p = gymapi.Vec3(box_pos_i[0] + scaled_box_size[0], box_pos_i[1] + scaled_box_size[1], box_pos_i[2] + scaled_box_size[2])
 
             # Define the corners of the bounding box
@@ -163,9 +163,30 @@ class Go1PushUpperWrapper(EmptyWrapper):
             for k in range(4):
                 angle = k * numpy.pi / 2
                 angle = angle + numpy.pi / 4  + box_rpy_i[2]
-                start_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0]* numpy.cos(angle), center_pose.p.y + half_size[1] * numpy.sin(angle), center_pose.p.z + .5)
-                end_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0] * numpy.cos(angle + numpy.pi/2), center_pose.p.y + half_size[1] * numpy.sin(angle + numpy.pi/2), center_pose.p.z + .5)
+                start_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0]* numpy.cos(angle), center_pose.p.y + half_size[1] * numpy.sin(angle), center_pose.p.z + .1)
+                end_pose.p = gymapi.Vec3(center_pose.p.x + half_size[0] * numpy.cos(angle + numpy.pi/2), center_pose.p.y + half_size[1] * numpy.sin(angle + numpy.pi/2), center_pose.p.z + .1)
                 gymutil.draw_line(start_pose.p, end_pose.p, color, self.env.gym, self.env.viewer, self.env.envs[0])
+
+    def draw_bounding_box_vis(self, vis, box_pos, box_rpy, hazard_level):
+        obs_size = self.cfg.asset.obstacle_size
+        hazard_level = hazard_level.detach().cpu().numpy()
+
+        box_rpy_i = box_rpy.detach().cpu().numpy()
+        box_pos_i = box_pos.detach().cpu().numpy()
+        center_x, center_y = box_pos_i[0], box_pos_i[1]
+        color = 'r'  # Red color for bounding box
+
+        scaled_box_size = [dim * hazard_level for dim in obs_size]
+        half_size = [(dim / 2) * 2**0.5 for dim in scaled_box_size]
+
+        for k in range(4):
+            angle = k * numpy.pi / 2
+            angle = angle + numpy.pi / 4 + box_rpy_i[2]
+            start_x = center_x + half_size[0] * numpy.cos(angle)
+            start_y = center_y + half_size[1] * numpy.sin(angle)
+            end_x = center_x + half_size[0] * numpy.cos(angle + numpy.pi / 2)
+            end_y = center_y + half_size[1] * numpy.sin(angle + numpy.pi / 2)
+            vis.draw_line((start_x, start_y), (end_x, end_y), color=color)
 
     def reset_target_positions(self, env_ids):
         new_positions = torch.randn(len(env_ids), 3, device="cuda")
@@ -249,12 +270,15 @@ class Go1PushUpperWrapper(EmptyWrapper):
             end = self.final_target_pos[:, :2]
 
             for i in range(self.num_envs):
+                print(f'obs_combined {i}: {obs_combined[i]}')
                 if vis is not None:
                     vis.clear()
                     vis.set_bounds(x_lim, y_lim)
                     vis.draw_state(start[i], color='k', s=20, alpha=1)
                     vis.draw_state(end[i], color='g', s=20, alpha=1)
                     vis.draw_obstacle(obs_combined[i], s=20, alpha=1)
+                    self.draw_bounding_box_vis(vis, self.obs1_pos[i,:], self.obs1_rpy[i,:], self.obs1_hazard_level[i][0])
+                    self.draw_bounding_box_vis(vis, self.obs2_pos[i,:], self.obs2_rpy[i,:], self.obs2_hazard_level[i][0])
                 planned_trace = self.rrt.plan(start=start[i], goal=end[i] , visualizer=vis, obstacle_states=obs_combined[i], 
                                                                     action_scale=0.75, 
                                                                     timeout=60, 
@@ -296,8 +320,8 @@ class Go1PushUpperWrapper(EmptyWrapper):
         self.obs2_rpy = torch.stack(get_euler_xyz(obs2_quaternion), dim=1)
         if self.num_envs < 5:
             self.env.gym.clear_lines(self.env.viewer)
-            self.draw_bounding_box(npc_pos[:,3,:], self.obs1_rpy)
-            self.draw_bounding_box(npc_pos[:,4,:], self.obs2_rpy)
+            self.draw_bounding_box(npc_pos[:,3,:], self.obs1_rpy, self.obs1_hazard_level)
+            self.draw_bounding_box(npc_pos[:,4,:], self.obs2_rpy, self.obs2_hazard_level)
         box_pos = npc_pos[:,0,:] - self.env.env_origins
         target_pos = npc_pos[:,1,:] - self.env.env_origins 
         box_qyaternion = self.root_states_npc.reshape(self.num_envs, self.num_npcs, -1)[:, 0 , 3:7]

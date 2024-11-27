@@ -46,7 +46,7 @@ class Go1PushUpperCfg(Go1Cfg):
         obs_npc_collision = True
         obs_fix_npc_base_link = True
         obs_npc_gravity = True
-        obstacle_size = [0.25, 0.25, 0.25]
+        obstacle_size = [1, 1, 1]
 
     # config of the terrain
     class terrain(Go1Cfg.terrain):
