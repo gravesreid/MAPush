@@ -181,7 +181,7 @@ class Go1PushUpperWrapper(EmptyWrapper):
 
         for k in range(4):
             angle = k * numpy.pi / 2
-            angle = angle + numpy.pi / 4 + box_rpy_i[2]
+            angle = angle + numpy.pi / 4
             start_x = center_x + half_size[0] * numpy.cos(angle)
             start_y = center_y + half_size[1] * numpy.sin(angle)
             end_x = center_x + half_size[0] * numpy.cos(angle + numpy.pi / 2)
