@@ -171,7 +171,7 @@ elif test_mode=="viewer":
                 video_array = np.concatenate([np.expand_dims(frame, axis=0) for frame in frames ], axis=0).swapaxes(1, 3).swapaxes(2, 3)
                 print(video_array.shape)
                 print(np.mean(video_array))
-                # save_gif(video_array, 1 / env.dt, filename="test.gif")
+                save_gif(video_array, 1 / env.dt, filename="test.gif")
                 save_video(video_array, 1 / env.dt, filename="test.mp4")
                 break
     else:
