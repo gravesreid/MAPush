@@ -1,0 +1,168 @@
+2024-11-21 19:49:22,037 [INFO] Episode: 0/250000
+2024-11-21 19:49:26,460 [INFO] 
+	average_step_reward: 0.09572361409664154
+	distance_to_target_reward: 0.028723105788230896
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03442585840821266
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.1014263704419136
+
+2024-11-21 19:49:26,465 [INFO] 
+	value_loss: 1.4618120312690734
+	policy_loss: -0.00874451210256666
+	dist_entropy: 2.8419873476028443
+	actor_grad_norm: 0.4246838688850403
+	critic_grad_norm: 1.716204047203064
+	ratio: 1.002817118167877
+
+2024-11-21 19:49:26,466 [INFO] Episode: 1/250000
+2024-11-21 19:49:30,881 [INFO] Episode: 2/250000
+2024-11-21 19:49:34,904 [INFO] Episode: 3/250000
+2024-11-21 19:49:39,119 [INFO] Episode: 4/250000
+2024-11-21 19:49:43,045 [INFO] Episode: 5/250000
+2024-11-21 19:49:47,214 [INFO] 
+	average_step_reward: 0.11185400933027267
+	distance_to_target_reward: 0.030897727236151695
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.031794458627700806
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.11275073885917664
+
+2024-11-21 19:49:47,217 [INFO] 
+	value_loss: 0.028998903557658197
+	policy_loss: -0.005074941026046886
+	dist_entropy: 2.823383641242981
+	actor_grad_norm: 0.5753268599510193
+	critic_grad_norm: 0.47448498010635376
+	ratio: 1.0015220642089844
+
+2024-11-21 19:49:47,218 [INFO] Episode: 6/250000
+2024-11-21 19:49:51,801 [INFO] Episode: 7/250000
+2024-11-21 19:49:56,227 [INFO] Episode: 8/250000
+2024-11-21 19:50:00,667 [INFO] Episode: 9/250000
+2024-11-21 19:50:04,956 [INFO] Episode: 10/250000
+2024-11-21 19:50:08,961 [INFO] 
+	average_step_reward: 0.12031825631856918
+	distance_to_target_reward: 0.035472139716148376
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03374429792165756
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.11859041452407837
+
+2024-11-21 19:50:08,964 [INFO] 
+	value_loss: 0.008239320898428559
+	policy_loss: -0.011341079319594627
+	dist_entropy: 2.803826332092285
+	actor_grad_norm: 0.7465404868125916
+	critic_grad_norm: 0.1799219697713852
+	ratio: 0.9972958266735077
+
+2024-11-21 19:50:08,965 [INFO] Episode: 11/250000
+2024-11-21 19:50:13,106 [INFO] Episode: 12/250000
+2024-11-21 19:50:17,097 [INFO] Episode: 13/250000
+2024-11-21 19:50:21,115 [INFO] Episode: 14/250000
+2024-11-21 19:50:25,167 [INFO] Episode: 15/250000
+2024-11-21 19:50:29,773 [INFO] 
+	average_step_reward: 0.13272880017757416
+	distance_to_target_reward: 0.038466475903987885
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03167291730642319
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.12593524158000946
+
+2024-11-21 19:50:29,776 [INFO] 
+	value_loss: 0.0027246036566793918
+	policy_loss: -0.005868265187367783
+	dist_entropy: 2.7417657375335693
+	actor_grad_norm: 0.5441538691520691
+	critic_grad_norm: 0.08409760147333145
+	ratio: 1.0010684728622437
+
+2024-11-21 19:50:29,778 [INFO] Episode: 16/250000
+2024-11-21 19:50:34,613 [INFO] Episode: 17/250000
+2024-11-21 19:50:39,383 [INFO] Episode: 18/250000
+2024-11-21 19:50:44,524 [INFO] Episode: 19/250000
+2024-11-21 19:50:49,521 [INFO] Episode: 20/250000
+2024-11-21 19:50:54,665 [INFO] 
+	average_step_reward: 0.13566046953201294
+	distance_to_target_reward: 0.0383324958384037
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03296278044581413
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.13029076159000397
+
+2024-11-21 19:50:54,667 [INFO] 
+	value_loss: 0.002698881505057216
+	policy_loss: -0.005472128825727829
+	dist_entropy: 2.698956847190857
+	actor_grad_norm: 0.6126646995544434
+	critic_grad_norm: 0.06792008131742477
+	ratio: 0.9985062837600708
+
+2024-11-21 19:50:54,670 [INFO] Episode: 21/250000
+2024-11-21 19:50:59,542 [INFO] Episode: 22/250000
+2024-11-21 19:51:04,760 [INFO] Episode: 23/250000
+2024-11-21 19:51:09,648 [INFO] Episode: 24/250000
+2024-11-21 19:51:14,378 [INFO] Episode: 25/250000
+2024-11-21 19:51:19,649 [INFO] 
+	average_step_reward: 0.13541261851787567
+	distance_to_target_reward: 0.03913310170173645
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03332997485995293
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.12960949540138245
+
+2024-11-21 19:51:19,652 [INFO] 
+	value_loss: 0.003134459746070206
+	policy_loss: -0.010217822401784371
+	dist_entropy: 2.6636828422546386
+	actor_grad_norm: 1.0673773288726807
+	critic_grad_norm: 0.046966247260570526
+	ratio: 0.9993588864803314
+
+2024-11-21 19:51:19,654 [INFO] Episode: 26/250000
+2024-11-21 19:51:24,613 [INFO] Episode: 27/250000
+2024-11-21 19:51:29,571 [INFO] Episode: 28/250000
+2024-11-21 19:51:34,765 [INFO] Episode: 29/250000
+2024-11-21 19:51:39,978 [INFO] Episode: 30/250000
+2024-11-21 19:51:44,974 [INFO] 
+	average_step_reward: 0.13954009115695953
+	distance_to_target_reward: 0.046729154884815216
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03589587286114693
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.12870681285858154
+
+2024-11-21 19:51:44,978 [INFO] 
+	value_loss: 0.00322379469871521
+	policy_loss: -0.0023406171712849755
+	dist_entropy: 2.6091190576553345
+	actor_grad_norm: 0.43668848276138306
+	critic_grad_norm: 0.05031035467982292
+	ratio: 1.0006103932857513
+
+2024-11-21 19:51:44,979 [INFO] Episode: 31/250000
+2024-11-21 19:51:49,764 [INFO] Episode: 32/250000
+2024-11-21 19:51:54,898 [INFO] Episode: 33/250000
+2024-11-21 19:51:59,832 [INFO] Episode: 34/250000
+2024-11-21 19:52:04,707 [INFO] Episode: 35/250000
+2024-11-21 19:52:09,793 [INFO] 
+	average_step_reward: 0.1499689668416977
+	distance_to_target_reward: 0.0525418221950531
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03543795645236969
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.13286510109901428
+
+2024-11-21 19:52:09,796 [INFO] 
+	value_loss: 0.0021870343945920466
+	policy_loss: -0.004497641391353646
+	dist_entropy: 2.565435767173767
+	actor_grad_norm: 0.4889741837978363
+	critic_grad_norm: 0.03056897595524788
+	ratio: 1.0028469562530518
+
+2024-11-21 19:52:09,798 [INFO] Episode: 36/250000
+2024-11-21 19:52:14,618 [INFO] Episode: 37/250000
+2024-11-21 19:52:19,645 [INFO] Episode: 38/250000
+2024-11-21 19:52:24,835 [INFO] Episode: 39/250000

@@ -1,0 +1,20 @@
+2024-11-19 07:50:49,907 [INFO] Episode: 0/50000
+2024-11-19 07:50:54,175 [INFO] 
+	average_step_reward: -0.013381537981331348
+	distance_to_target_reward: -0.005477976053953171
+	exception_punishment: 0.0
+	approach_to_box_reward: -0.004374895570799708
+	collision_punishment: -0.003536167194833979
+	reach_target_reward: 0.0
+	push_reward: 7.500000265281415e-06
+	ocb_reward: 0.0
+
+2024-11-19 07:50:54,180 [INFO] 
+	value_loss: 2.4897725105285646
+	policy_loss: -0.01151732164155419
+	dist_entropy: 4.258879661560059
+	actor_grad_norm: 0.5370256304740906
+	critic_grad_norm: 2.250532388687134
+	ratio: 1.0019100785255433
+
+2024-11-19 07:50:54,182 [INFO] Episode: 1/50000

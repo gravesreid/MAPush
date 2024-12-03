@@ -1,0 +1,117 @@
+2024-11-19 08:56:27,145 [INFO] Episode: 0/50000
+2024-11-19 08:56:32,109 [INFO] 
+	average_step_reward: -0.012491977773606777
+	distance_to_target_reward: -0.0048677739687263966
+	exception_punishment: 0.0
+	approach_to_box_reward: -0.0041531873063649985
+	collision_punishment: -0.0035310161940287797
+	hazard_punishment: 0.0
+	reach_target_reward: 0.0
+	push_reward: 6.0000005760230124e-05
+	ocb_reward: 0.0
+
+2024-11-19 08:56:32,115 [INFO] 
+	value_loss: 2.9640299558639525
+	policy_loss: -0.011550400850362052
+	dist_entropy: 4.258565855026245
+	actor_grad_norm: 0.6093485951423645
+	critic_grad_norm: 2.5882585048675537
+	ratio: 1.0019127368927
+
+2024-11-19 08:56:32,116 [INFO] Episode: 1/50000
+2024-11-19 08:56:36,287 [INFO] Episode: 2/50000
+2024-11-19 08:56:40,134 [INFO] Episode: 3/50000
+2024-11-19 08:56:44,605 [INFO] Episode: 4/50000
+2024-11-19 08:56:48,738 [INFO] Episode: 5/50000
+2024-11-19 08:56:53,056 [INFO] 
+	average_step_reward: -0.020836159586906433
+	distance_to_target_reward: -0.007765695918351412
+	exception_punishment: 0.0
+	approach_to_box_reward: -0.006981304788496345
+	collision_punishment: -0.00286304940469563
+	hazard_punishment: 0.0
+	reach_target_reward: 0.0
+	push_reward: 0.0
+	ocb_reward: -0.003226108197122812
+
+2024-11-19 08:56:53,060 [INFO] 
+	value_loss: 0.03866814319044352
+	policy_loss: -0.007030615408439189
+	dist_entropy: 4.284228515625
+	actor_grad_norm: 0.5216982364654541
+	critic_grad_norm: 0.7896482348442078
+	ratio: 1.0000883340835571
+
+2024-11-19 08:56:53,061 [INFO] Episode: 6/50000
+2024-11-19 08:56:57,202 [INFO] Episode: 7/50000
+2024-11-19 08:57:01,380 [INFO] Episode: 8/50000
+2024-11-19 08:57:05,565 [INFO] Episode: 9/50000
+2024-11-19 08:57:09,755 [INFO] Episode: 10/50000
+2024-11-19 08:57:14,075 [INFO] 
+	average_step_reward: -0.017428871244192123
+	distance_to_target_reward: -0.007838345132768154
+	exception_punishment: 0.0
+	approach_to_box_reward: -0.004736259032506495
+	collision_punishment: -0.003516100533306599
+	hazard_punishment: 0.0
+	reach_target_reward: 0.0
+	push_reward: 0.0
+	ocb_reward: -0.0013381667691282927
+
+2024-11-19 08:57:14,079 [INFO] 
+	value_loss: 0.003302653890568763
+	policy_loss: -0.0039926383557030935
+	dist_entropy: 4.271947813034058
+	actor_grad_norm: 0.4662398397922516
+	critic_grad_norm: 0.26642918586730957
+	ratio: 1.0004442572593688
+
+2024-11-19 08:57:14,081 [INFO] Episode: 11/50000
+2024-11-19 08:57:18,529 [INFO] Episode: 12/50000
+2024-11-19 08:57:22,721 [INFO] Episode: 13/50000
+2024-11-19 08:57:27,038 [INFO] Episode: 14/50000
+2024-11-19 08:57:31,298 [INFO] Episode: 15/50000
+2024-11-19 08:57:35,639 [INFO] 
+	average_step_reward: -0.01486569456756115
+	distance_to_target_reward: -0.007116720546036959
+	exception_punishment: 0.0
+	approach_to_box_reward: -0.004782968882936984
+	collision_punishment: -0.0029660052608232947
+	hazard_punishment: 0.0
+	reach_target_reward: 0.0
+	push_reward: 0.0
+	ocb_reward: 0.0
+
+2024-11-19 08:57:35,643 [INFO] 
+	value_loss: 0.0011164986906806007
+	policy_loss: -0.003636838322505298
+	dist_entropy: 4.30510950088501
+	actor_grad_norm: 0.39037737250328064
+	critic_grad_norm: 0.19196318089962006
+	ratio: 1.0004475831985473
+
+2024-11-19 08:57:35,645 [INFO] Episode: 16/50000
+2024-11-19 08:57:39,959 [INFO] Episode: 17/50000
+2024-11-19 08:57:44,098 [INFO] Episode: 18/50000
+2024-11-19 08:57:48,050 [INFO] Episode: 19/50000
+2024-11-19 08:57:52,258 [INFO] Episode: 20/50000
+2024-11-19 08:57:56,699 [INFO] 
+	average_step_reward: -0.013703826814889908
+	distance_to_target_reward: -0.006616827100515366
+	exception_punishment: 0.0
+	approach_to_box_reward: -0.003372015649219975
+	collision_punishment: -0.0037224839034024626
+	hazard_punishment: 0.0
+	reach_target_reward: 0.0
+	push_reward: 7.500000265281415e-06
+	ocb_reward: 0.0
+
+2024-11-19 08:57:56,702 [INFO] 
+	value_loss: 0.0032902638835366816
+	policy_loss: -0.0045951246944028416
+	dist_entropy: 4.318407869338989
+	actor_grad_norm: 0.6137000918388367
+	critic_grad_norm: 0.3159430921077728
+	ratio: 1.0017317533493042
+
+2024-11-19 08:57:56,705 [INFO] Episode: 21/50000

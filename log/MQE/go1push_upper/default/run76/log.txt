@@ -1,0 +1,305 @@
+2024-11-26 12:49:27,464 [INFO] Episode: 0/2000
+2024-11-26 12:49:41,884 [INFO] 
+	average_step_reward: 0.09470308572053909
+	distance_to_target_reward: 0.028880121186375618
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.034131068736314774
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.0999540314078331
+	hazard_punishment: 0.0
+
+2024-11-26 12:49:41,889 [INFO] 
+	value_loss: 0.6049030780792236
+	policy_loss: -0.008044903470823784
+	dist_entropy: 2.835210847854614
+	actor_grad_norm: 0.4584021270275116
+	critic_grad_norm: 1.244559407234192
+	ratio: 1.0002183318138123
+
+2024-11-26 12:49:41,891 [INFO] Episode: 1/2000
+2024-11-26 12:49:54,114 [INFO] Episode: 2/2000
+2024-11-26 12:50:05,339 [INFO] Episode: 3/2000
+2024-11-26 12:50:16,405 [INFO] Episode: 4/2000
+2024-11-26 12:50:27,198 [INFO] Episode: 5/2000
+2024-11-26 12:50:38,488 [INFO] 
+	average_step_reward: 0.12362794578075409
+	distance_to_target_reward: 0.030281037092208862
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.030820097774267197
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.12416701018810272
+	hazard_punishment: 0.0
+
+2024-11-26 12:50:38,492 [INFO] 
+	value_loss: 0.027448678761720656
+	policy_loss: -0.0020960778760240827
+	dist_entropy: 2.7802751541137694
+	actor_grad_norm: 0.2680404484272003
+	critic_grad_norm: 0.5384532809257507
+	ratio: 0.9998563528060913
+
+2024-11-26 12:50:38,494 [INFO] Episode: 6/2000
+2024-11-26 12:50:49,525 [INFO] Episode: 7/2000
+2024-11-26 12:51:00,524 [INFO] Episode: 8/2000
+2024-11-26 12:51:11,413 [INFO] Episode: 9/2000
+2024-11-26 12:51:22,514 [INFO] Episode: 10/2000
+2024-11-26 12:51:33,396 [INFO] 
+	average_step_reward: 0.1293519139289856
+	distance_to_target_reward: 0.033152371644973755
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.029500257223844528
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.12672638893127441
+	hazard_punishment: -0.0010265876771882176
+
+2024-11-26 12:51:33,400 [INFO] 
+	value_loss: 0.009502950217574834
+	policy_loss: -0.0008404477563018986
+	dist_entropy: 2.7243919372558594
+	actor_grad_norm: 0.12132952362298965
+	critic_grad_norm: 0.14010731875896454
+	ratio: 1.0000223398208619
+
+2024-11-26 12:51:33,402 [INFO] Episode: 11/2000
+2024-11-26 12:51:44,522 [INFO] Episode: 12/2000
+2024-11-26 12:51:55,808 [INFO] Episode: 13/2000
+2024-11-26 12:52:07,230 [INFO] Episode: 14/2000
+2024-11-26 12:52:18,396 [INFO] Episode: 15/2000
+2024-11-26 12:52:29,906 [INFO] 
+	average_step_reward: 0.13300663232803345
+	distance_to_target_reward: 0.034722208976745605
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.0298052616417408
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.12862254679203033
+	hazard_punishment: -0.000532866979483515
+
+2024-11-26 12:52:29,910 [INFO] 
+	value_loss: 0.006149935023859143
+	policy_loss: -0.0012128101230956645
+	dist_entropy: 2.6718807458877563
+	actor_grad_norm: 0.13173922896385193
+	critic_grad_norm: 0.05627970024943352
+	ratio: 0.9999545276165008
+
+2024-11-26 12:52:29,912 [INFO] Episode: 16/2000
+2024-11-26 12:52:40,715 [INFO] Episode: 17/2000
+2024-11-26 12:52:51,639 [INFO] Episode: 18/2000
+2024-11-26 12:53:02,303 [INFO] Episode: 19/2000
+2024-11-26 12:53:12,763 [INFO] Episode: 20/2000
+2024-11-26 12:53:23,087 [INFO] 
+	average_step_reward: 0.13843272626399994
+	distance_to_target_reward: 0.0369342640042305
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.030169134959578514
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.13216842710971832
+	hazard_punishment: -0.0005008223233744502
+
+2024-11-26 12:53:23,089 [INFO] 
+	value_loss: 0.00505988085642457
+	policy_loss: -0.0012797725889832634
+	dist_entropy: 2.6141835689544677
+	actor_grad_norm: 0.1649717539548874
+	critic_grad_norm: 0.03862686827778816
+	ratio: 1.0000075161457063
+
+2024-11-26 12:53:23,092 [INFO] Episode: 21/2000
+2024-11-26 12:53:33,306 [INFO] Episode: 22/2000
+2024-11-26 12:53:43,541 [INFO] Episode: 23/2000
+2024-11-26 12:53:53,718 [INFO] Episode: 24/2000
+2024-11-26 12:54:04,058 [INFO] Episode: 25/2000
+2024-11-26 12:54:14,241 [INFO] 
+	average_step_reward: 0.1425943225622177
+	distance_to_target_reward: 0.04001187905669212
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03142637014389038
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.13481585681438446
+	hazard_punishment: -0.0008070446783676744
+
+2024-11-26 12:54:14,244 [INFO] 
+	value_loss: 0.005747818294912577
+	policy_loss: -0.0010499436904195746
+	dist_entropy: 2.556235098838806
+	actor_grad_norm: 0.14770951867103577
+	critic_grad_norm: 0.03286506235599518
+	ratio: 1.000012505054474
+
+2024-11-26 12:54:14,247 [INFO] Episode: 26/2000
+2024-11-26 12:54:24,360 [INFO] Episode: 27/2000
+2024-11-26 12:54:34,391 [INFO] Episode: 28/2000
+2024-11-26 12:54:44,424 [INFO] Episode: 29/2000
+2024-11-26 12:54:54,386 [INFO] Episode: 30/2000
+2024-11-26 12:55:04,414 [INFO] 
+	average_step_reward: 0.1487085223197937
+	distance_to_target_reward: 0.044470321387052536
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03205062076449394
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.1371430605649948
+	hazard_punishment: -0.0008542427676729858
+
+2024-11-26 12:55:04,418 [INFO] 
+	value_loss: 0.007526359101757407
+	policy_loss: -0.0010146740573597768
+	dist_entropy: 2.5011508226394654
+	actor_grad_norm: 0.13417556881904602
+	critic_grad_norm: 0.04095460847020149
+	ratio: 1.0000672101974488
+
+2024-11-26 12:55:04,420 [INFO] Episode: 31/2000
+2024-11-26 12:55:14,393 [INFO] Episode: 32/2000
+2024-11-26 12:55:24,273 [INFO] Episode: 33/2000
+2024-11-26 12:55:34,299 [INFO] Episode: 34/2000
+2024-11-26 12:55:44,164 [INFO] Episode: 35/2000
+2024-11-26 12:55:54,109 [INFO] 
+	average_step_reward: 0.15569797158241272
+	distance_to_target_reward: 0.049737945199012756
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03249567747116089
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.1394181251525879
+	hazard_punishment: -0.0009624154772609472
+
+2024-11-26 12:55:54,111 [INFO] 
+	value_loss: 0.008771971706300974
+	policy_loss: -0.0009240948343462562
+	dist_entropy: 2.4537983894348145
+	actor_grad_norm: 0.14592760801315308
+	critic_grad_norm: 0.05336437746882439
+	ratio: 0.9996723711490632
+
+2024-11-26 12:55:54,114 [INFO] Episode: 36/2000
+2024-11-26 12:56:03,910 [INFO] Episode: 37/2000
+2024-11-26 12:56:13,777 [INFO] Episode: 38/2000
+2024-11-26 12:56:23,664 [INFO] Episode: 39/2000
+2024-11-26 12:56:33,582 [INFO] Episode: 40/2000
+2024-11-26 12:56:48,677 [INFO] 
+	average_step_reward: 0.1313837319612503
+	distance_to_target_reward: 0.030105436220765114
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.031661227345466614
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.13351646065711975
+	hazard_punishment: -0.0005769450217485428
+
+2024-11-26 12:56:48,680 [INFO] 
+	value_loss: 0.10224300175905228
+	policy_loss: -0.0017300110183954055
+	dist_entropy: 2.411998724937439
+	actor_grad_norm: 0.17361634969711304
+	critic_grad_norm: 0.2695329189300537
+	ratio: 1.0001349806785584
+
+2024-11-26 12:56:48,683 [INFO] Episode: 41/2000
+2024-11-26 12:57:01,180 [INFO] Episode: 42/2000
+2024-11-26 12:57:12,772 [INFO] Episode: 43/2000
+2024-11-26 12:57:23,520 [INFO] Episode: 44/2000
+2024-11-26 12:57:34,123 [INFO] Episode: 45/2000
+2024-11-26 12:57:45,041 [INFO] 
+	average_step_reward: 0.14298194646835327
+	distance_to_target_reward: 0.03249577805399895
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.030938690528273582
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.1424431949853897
+	hazard_punishment: -0.001018323004245758
+
+2024-11-26 12:57:45,044 [INFO] 
+	value_loss: 0.0066498646978288885
+	policy_loss: -0.001977310567714419
+	dist_entropy: 2.369108557701111
+	actor_grad_norm: 0.3453534245491028
+	critic_grad_norm: 0.05439688637852669
+	ratio: 0.9998595058918
+
+2024-11-26 12:57:45,047 [INFO] Episode: 46/2000
+2024-11-26 12:57:55,852 [INFO] Episode: 47/2000
+2024-11-26 12:58:06,568 [INFO] Episode: 48/2000
+2024-11-26 12:58:17,467 [INFO] Episode: 49/2000
+2024-11-26 12:58:28,155 [INFO] Episode: 50/2000
+2024-11-26 12:58:38,572 [INFO] 
+	average_step_reward: 0.1493130624294281
+	distance_to_target_reward: 0.036212898790836334
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.031133178621530533
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.14552325010299683
+	hazard_punishment: -0.0012898974819108844
+
+2024-11-26 12:58:38,575 [INFO] 
+	value_loss: 0.0059203640557825565
+	policy_loss: -0.001116915470712354
+	dist_entropy: 2.3046375513076782
+	actor_grad_norm: 0.17249839007854462
+	critic_grad_norm: 0.06107831001281738
+	ratio: 0.9999460458755494
+
+2024-11-26 12:58:38,578 [INFO] Episode: 51/2000
+2024-11-26 12:58:49,168 [INFO] Episode: 52/2000
+2024-11-26 12:59:00,021 [INFO] Episode: 53/2000
+2024-11-26 12:59:10,851 [INFO] Episode: 54/2000
+2024-11-26 12:59:21,099 [INFO] Episode: 55/2000
+2024-11-26 12:59:31,374 [INFO] 
+	average_step_reward: 0.15725846588611603
+	distance_to_target_reward: 0.040970489382743835
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03181757032871246
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.14864185452461243
+	hazard_punishment: -0.0005363102536648512
+
+2024-11-26 12:59:31,378 [INFO] 
+	value_loss: 0.006890761386603117
+	policy_loss: -0.0009509877278911727
+	dist_entropy: 2.2410691022872924
+	actor_grad_norm: 0.16203801333904266
+	critic_grad_norm: 0.06532751768827438
+	ratio: 1.000048542022705
+
+2024-11-26 12:59:31,381 [INFO] Episode: 56/2000
+2024-11-26 12:59:41,346 [INFO] Episode: 57/2000
+2024-11-26 12:59:51,377 [INFO] Episode: 58/2000
+2024-11-26 13:00:01,371 [INFO] Episode: 59/2000
+2024-11-26 13:00:11,473 [INFO] Episode: 60/2000
+2024-11-26 13:00:21,345 [INFO] 
+	average_step_reward: 0.16370810568332672
+	distance_to_target_reward: 0.04676375165581703
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.032133620232343674
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.14981086552143097
+	hazard_punishment: -0.0007328777574002743
+
+2024-11-26 13:00:21,348 [INFO] 
+	value_loss: 0.007823096681386232
+	policy_loss: -0.0013576250186953854
+	dist_entropy: 2.1829970836639405
+	actor_grad_norm: 0.19606167078018188
+	critic_grad_norm: 0.0564831867814064
+	ratio: 0.9998194813728333
+
+2024-11-26 13:00:21,349 [INFO] Episode: 61/2000
+2024-11-26 13:00:31,583 [INFO] Episode: 62/2000
+2024-11-26 13:00:41,501 [INFO] Episode: 63/2000
+2024-11-26 13:00:51,401 [INFO] Episode: 64/2000
+2024-11-26 13:01:01,615 [INFO] Episode: 65/2000
+2024-11-26 13:01:11,564 [INFO] 
+	average_step_reward: 0.17430512607097626
+	distance_to_target_reward: 0.05473624914884567
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.03245212510228157
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.15263061225414276
+	hazard_punishment: -0.0006096034776419401
+
+2024-11-26 13:01:11,567 [INFO] 
+	value_loss: 0.007588767260313034
+	policy_loss: -0.0016601346911349958
+	dist_entropy: 2.1260610580444337
+	actor_grad_norm: 0.22444604337215424
+	critic_grad_norm: 0.09322860836982727
+	ratio: 1.0000549793243407
+
+2024-11-26 13:01:11,574 [INFO] Episode: 66/2000

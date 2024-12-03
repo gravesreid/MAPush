@@ -1,0 +1,512 @@
+_wandb:
+    value:
+        cli_version: 0.18.5
+        m: []
+        python_version: 3.8.20
+        t:
+            "1":
+                - 1
+                - 55
+            "2":
+                - 1
+                - 55
+            "3":
+                - 13
+                - 16
+                - 23
+                - 55
+                - 61
+            "4": 3.8.20
+            "5": 0.18.5
+            "8":
+                - 5
+            "12": 0.18.5
+            "13": linux-x86_64
+activation_id:
+    value: 1
+actor_lr:
+    value: 0.0003
+actor_num:
+    value: 1
+actor_train_interval_step:
+    value: 2
+algo:
+    value: ppo
+algorithm_name:
+    value: ppo
+alpha_lr:
+    value: 0.0002
+alpha_value:
+    value: 0.2
+attn_N:
+    value: 1
+attn_heads:
+    value: 4
+attn_size:
+    value: 64
+auto_alph:
+    value: false
+aux_epoch:
+    value: 5
+batch_size:
+    value: 32
+bc_epoch:
+    value: 2
+buffer_size:
+    value: 5000
+build_in_pos:
+    value: -1
+callbacks:
+    value: null
+checkpoint:
+    value: null
+clip_param:
+    value: 0.2
+clone_coef:
+    value: 1
+cnn_layers_params:
+    value: null
+collector_num:
+    value: 1
+compute_device_id:
+    value: 0
+config:
+    value: null
+critic_lr:
+    value: 0.0005
+cuda_deterministic:
+    value: true
+data_chunk_length:
+    value: 2
+data_dir:
+    value: null
+data_path:
+    value: null
+dec_actor:
+    value: false
+dis_input_len:
+    value: null
+disable_cuda:
+    value: false
+disable_training:
+    value: false
+disable_update_enemy:
+    value: false
+disable_wandb:
+    value: false
+distributed_type:
+    value: sync
+dropout:
+    value: 0
+dual_clip_coeff:
+    value: 3
+dual_clip_ppo:
+    value: false
+encode_state:
+    value: false
+entropy_coef:
+    value: 0.01
+env:
+    value: Namespace(args={})
+env_name:
+    value: StarCraft2
+episode_length:
+    value: 200
+epsilon_anneal_time:
+    value: 5000
+epsilon_finish:
+    value: 0.05
+epsilon_start:
+    value: 1
+eval_episode_length:
+    value: 200
+eval_episodes:
+    value: 32
+eval_interval:
+    value: 25
+eval_metrics:
+    value: []
+eval_render:
+    value: false
+exist_enemy_num:
+    value: 0
+exp_name:
+    value: default
+experiment_name:
+    value: ""
+expert_data:
+    value: null
+fetch_num:
+    value: 1
+flex:
+    value: false
+force_rewrite:
+    value: false
+frameskip:
+    value: null
+gae_lambda:
+    value: 0.95
+gail:
+    value: false
+gail_batch_size:
+    value: 128
+gail_epoch:
+    value: 5
+gail_hidden_size:
+    value: 256
+gail_layer_num:
+    value: 3
+gail_loss_target:
+    value: null
+gail_lr:
+    value: 0.0005
+gail_use_action:
+    value: true
+gain:
+    value: 0.01
+gamma:
+    value: 0.99
+gpu_usage_type:
+    value: auto
+graphics_device_id:
+    value: 0
+hard_update_interval_episode:
+    value: 200
+headless:
+    value: true
+hidden_size:
+    value: 64
+hie:
+    value: false
+horovod:
+    value: false
+huber_delta:
+    value: 10
+hypernet_hidden_dim:
+    value: 64
+hypernet_layers:
+    value: 2
+ifi:
+    value: 0.1
+influence_layer_N:
+    value: 1
+init_dir:
+    value: null
+input_data_dir:
+    value: null
+kill_all:
+    value: false
+latest_weight:
+    value: 0.5
+layer_N:
+    value: 1
+lazy_load_opponent:
+    value: true
+learner_n_rollout_threads:
+    value: 500
+learner_num:
+    value: 1
+least_win_rate:
+    value: 0.5
+load_optimizer:
+    value: false
+load_run:
+    value: null
+local_rank:
+    value: -1
+log_each_episode:
+    value: true
+log_interval:
+    value: 5
+lr:
+    value: 0.0005
+max_enemy_num:
+    value: -1
+max_episode_length:
+    value: null
+max_grad_norm:
+    value: 10
+max_iterations:
+    value: null
+max_play_num:
+    value: 2000
+mini_batch_size:
+    value: null
+mixer_hidden_dim:
+    value: 32
+model_dir:
+    value: null
+model_path:
+    value: null
+mount_name:
+    value: null
+mount_path:
+    value: null
+n_block:
+    value: 1
+n_embd:
+    value: 64
+n_eval_rollout_threads:
+    value: 1
+n_head:
+    value: 1
+n_render_rollout_threads:
+    value: 1
+n_rollout_threads:
+    value: 500
+namespace:
+    value: default
+newest_pos:
+    value: 1
+newest_weight:
+    value: 0.5
+num_agents:
+    value: 1
+num_enemies:
+    value: 2
+num_env_steps:
+    value: 10000000
+num_envs:
+    value: 500
+num_mini_batch:
+    value: 1
+num_random_episodes:
+    value: 5
+num_threads:
+    value: 0
+only_eval:
+    value: false
+opti_eps:
+    value: 1e-05
+output_data_dir:
+    value: null
+per_alpha:
+    value: 0.6
+per_beta_start:
+    value: 0.4
+per_eps:
+    value: 1e-06
+per_nu:
+    value: 0.9
+persistent_volume_claim_name:
+    value: null
+physics_engine:
+    value: SimType.SIM_PHYSX
+physx:
+    value: false
+pipeline:
+    value: gpu
+policy_value_loss_coef:
+    value: 0.5
+popart_update_interval_step:
+    value: 2
+ppo_epoch:
+    value: 10
+prev_act_inp:
+    value: false
+program_type:
+    value: local
+pytorch_threads:
+    value: 1
+random_pos:
+    value: -1
+recent_list_max_len:
+    value: 100
+record_video:
+    value: false
+recurrent_N:
+    value: 1
+render_episodes:
+    value: 5
+resume:
+    value: false
+reward_class:
+    value: Namespace(args={}, id=None)
+rl_device:
+    value: cuda:0
+rnn_hidden_size:
+    value: 64
+rnn_num:
+    value: 1
+rnn_type:
+    value: gru
+run_dir:
+    value: null
+run_name:
+    value: null
+sample_interval:
+    value: 1
+save_dir:
+    value: null
+save_gifs:
+    value: false
+save_interval:
+    value: 1
+sb3_algo:
+    value: null
+sb3_model_path:
+    value: null
+scenario_name:
+    value: default
+seed:
+    value: 0
+self_play:
+    value: false
+selfplay_algo:
+    value: WeightExistEnemy
+selfplay_api:
+    value: Namespace(host='127.0.0.1', port=10086)
+separate_policy:
+    value: false
+server_address:
+    value: null
+share_actor:
+    value: false
+share_entry_script_path:
+    value: null
+share_temp_dir:
+    value: null
+sim_device:
+    value: cuda:0
+sim_device_id:
+    value: 0
+sim_device_type:
+    value: cuda
+slices:
+    value: 0
+stacked_frames:
+    value: 1
+step_difference:
+    value: 1
+subscenes:
+    value: 0
+target_action_noise_std:
+    value: 0.2
+target_update:
+    value: 10
+task:
+    value: go1push_upper
+tau:
+    value: 0.995
+terminal:
+    value: current_terminal
+test_mode:
+    value: null
+tmux_prefix:
+    value: null
+train_interval:
+    value: 100
+train_interval_episode:
+    value: 1
+train_timesteps:
+    value: 100000000
+use_adv_normalize:
+    value: false
+use_amp:
+    value: false
+use_attn:
+    value: false
+use_attn_internal:
+    value: true
+use_average_pool:
+    value: true
+use_cat_self:
+    value: true
+use_clipped_value_loss:
+    value: true
+use_conv1d:
+    value: false
+use_deepspeed:
+    value: false
+use_double_q:
+    value: true
+use_eval:
+    value: false
+use_feature_normalization:
+    value: false
+use_fp16:
+    value: false
+use_gae:
+    value: true
+use_global_all_local_state:
+    value: false
+use_gpu:
+    value: true
+use_gpu_pipeline:
+    value: true
+use_half_actor:
+    value: false
+use_huber_loss:
+    value: true
+use_influence_policy:
+    value: false
+use_joint_action_loss:
+    value: false
+use_linear_lr_decay:
+    value: false
+use_max_grad_norm:
+    value: true
+use_maxpool2d:
+    value: false
+use_naive_recurrent_policy:
+    value: false
+use_obs_instead_of_state:
+    value: false
+use_offload:
+    value: false
+use_orthogonal:
+    value: true
+use_per:
+    value: false
+use_policy_active_masks:
+    value: true
+use_policy_vhead:
+    value: false
+use_popart:
+    value: false
+use_proper_time_limits:
+    value: false
+use_recurrent_policy:
+    value: false
+use_render:
+    value: false
+use_reward_normalization:
+    value: false
+use_rich_handler:
+    value: true
+use_same_critic_obs:
+    value: true
+use_share_model:
+    value: false
+use_single_network:
+    value: false
+use_soft_update:
+    value: true
+use_stacked_frames:
+    value: false
+use_tensorboard:
+    value: false
+use_tlaunch:
+    value: false
+use_transmit:
+    value: false
+use_value_active_masks:
+    value: true
+use_valuenorm:
+    value: true
+use_wandb:
+    value: true
+user_name:
+    value: openrl
+value_loss_coef:
+    value: 0.5
+var:
+    value: 0.5
+vec_info_class:
+    value: Namespace(args={}, id=None)
+wandb_entity:
+    value: null
+weight_decay:
+    value: 0
+worker_num:
+    value: 1

@@ -1,0 +1,63 @@
+2024-11-26 09:19:53,917 [INFO] Episode: 0/125000
+2024-11-26 09:19:59,560 [INFO] 
+	average_step_reward: 0.0976540595293045
+	distance_to_target_reward: 0.029532456770539284
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.029326651245355606
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.09744825214147568
+	hazard_punishment: 0.0
+
+2024-11-26 09:19:59,566 [INFO] 
+	value_loss: 0.5885593056678772
+	policy_loss: -0.007511677694509444
+	dist_entropy: 2.8334747552871704
+	actor_grad_norm: 0.36984506249427795
+	critic_grad_norm: 1.0966037511825562
+	ratio: 1.002218234539032
+
+2024-11-26 09:19:59,568 [INFO] Episode: 1/125000
+2024-11-26 09:20:04,895 [INFO] Episode: 2/125000
+2024-11-26 09:20:10,375 [INFO] Episode: 3/125000
+2024-11-26 09:20:15,826 [INFO] Episode: 4/125000
+2024-11-26 09:20:21,607 [INFO] Episode: 5/125000
+2024-11-26 09:20:27,344 [INFO] 
+	average_step_reward: 0.12670347094535828
+	distance_to_target_reward: 0.03216606751084328
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.02729521505534649
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.12183261662721634
+	hazard_punishment: 0.0
+
+2024-11-26 09:20:27,347 [INFO] 
+	value_loss: 0.023649855609983207
+	policy_loss: -0.003613953068619935
+	dist_entropy: 2.793382477760315
+	actor_grad_norm: 0.2705971598625183
+	critic_grad_norm: 0.5582457184791565
+	ratio: 0.9989877164363861
+
+2024-11-26 09:20:27,349 [INFO] Episode: 6/125000
+2024-11-26 09:20:32,280 [INFO] Episode: 7/125000
+2024-11-26 09:20:37,833 [INFO] Episode: 8/125000
+2024-11-26 09:20:42,828 [INFO] Episode: 9/125000
+2024-11-26 09:20:48,189 [INFO] Episode: 10/125000
+2024-11-26 09:20:53,396 [INFO] 
+	average_step_reward: 0.12817786633968353
+	distance_to_target_reward: 0.03510306775569916
+	exception_punishment: 0.0
+	obstacle_reward_scale: -0.027810001745820045
+	reach_target_reward: 0.0
+	trajectory_rewards: 0.12088479846715927
+	hazard_punishment: 0.0
+
+2024-11-26 09:20:53,399 [INFO] 
+	value_loss: 0.006505546346306801
+	policy_loss: -0.004725691389292486
+	dist_entropy: 2.7436452865600587
+	actor_grad_norm: 0.5003804564476013
+	critic_grad_norm: 0.1232421025633812
+	ratio: 0.9973312795162201
+
+2024-11-26 09:20:53,401 [INFO] Episode: 11/125000

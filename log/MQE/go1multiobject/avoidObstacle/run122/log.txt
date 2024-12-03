@@ -1,0 +1,24 @@
+2024-11-19 09:35:21,041 [INFO] Episode: 0/16666
+2024-11-19 09:35:25,972 [INFO] 
+	average_step_reward: -0.0503658726811409
+	distance_to_target_reward: -0.006861804984509945
+	exception_punishment: 0.0
+	approach_to_box_reward: -0.004410639332296948
+	collision_punishment: -0.003657860364764929
+	hazard_punishment: -0.03743011678258578
+	reach_target_reward: 0.0
+	push_reward: 2.750000021478627e-05
+	ocb_reward: 0.001967047316332658
+
+2024-11-19 09:35:25,988 [INFO] 
+	value_loss: 2.1796407461166383
+	policy_loss: -0.006339189205939633
+	dist_entropy: 4.260559511184693
+	actor_grad_norm: 0.2891973853111267
+	critic_grad_norm: 2.170968770980835
+	ratio: 1.0004994869232178
+
+2024-11-19 09:35:25,990 [INFO] Episode: 1/16666
+2024-11-19 09:35:30,565 [INFO] Episode: 2/16666
+2024-11-19 09:35:34,816 [INFO] Episode: 3/16666
+2024-11-19 09:35:39,055 [INFO] Episode: 4/16666
