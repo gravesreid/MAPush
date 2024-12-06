@@ -1,0 +1,224 @@
+[
+    {
+        "object_name": "Baby",
+        "ground_truth_severity": 10.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Table",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Bookcase",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Chair",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Laptop",
+        "ground_truth_severity": 10.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Plant",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Television",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Phone",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Lamp",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Sofa",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Desk",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Fan",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Cupboard",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Mirror",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Bed",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Rug",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Curtains",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Picture Frame",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Clock",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Vase",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Fridge",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Oven",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Microwave",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Toaster",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Mug",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Bookshelf",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Wardrobe",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Dining Table",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "medium",
+        "severity_level": 5
+    },
+    {
+        "object_name": "Couch",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Side Table",
+        "ground_truth_severity": 1.0,
+        "chatgpt_response": "low",
+        "severity_level": 1
+    },
+    {
+        "object_name": "Human",
+        "ground_truth_severity": 10.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Dog",
+        "ground_truth_severity": 10.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Cat",
+        "ground_truth_severity": 10.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Wife",
+        "ground_truth_severity": 10.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Husband",
+        "ground_truth_severity": 10.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Car",
+        "ground_truth_severity": 5.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    },
+    {
+        "object_name": "Grandma",
+        "ground_truth_severity": 10.0,
+        "chatgpt_response": "high",
+        "severity_level": 10
+    }
+]
