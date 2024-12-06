@@ -103,8 +103,10 @@ class Go1PushUpperWrapper(EmptyWrapper):
         self.trajectory_rewards_scale = self.cfg.rewards.scales.trajectory_rewards_scale
         self.exception_punishment_scale = self.cfg.rewards.scales.exception_punishment_scale
         self.obstacle_reward_scale = self.cfg.rewards.scales.obstacle_reward_scale
-        self.obs1_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
-        self.obs2_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
+        #self.obs1_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
+        #self.obs2_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
+        self.obs1_hazard_level = torch.ones((self.num_envs, self.num_agents, 1), device=self.device)
+        self.obs2_hazard_level = torch.ones((self.num_envs, self.num_agents, 1), device=self.device)
 
         self.reward_buffer = {
             "distance_to_target_reward": 0,
@@ -232,8 +234,10 @@ class Go1PushUpperWrapper(EmptyWrapper):
         self.cfg.obstacle_state.obs2_pos = self.obs2_pos
 
         # initialize hazard level for obstacles
-        self.obs1_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
-        self.obs2_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
+        #self.obs1_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
+        #self.obs2_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents), device=self.device).unsqueeze(2)
+        self.obs1_hazard_level = torch.ones((self.num_envs, self.num_agents, 1), device=self.device)
+        self.obs2_hazard_level = torch.ones((self.num_envs, self.num_agents, 1), device=self.device)
 
         self.cfg.obs1_hazard_level = self.obs1_hazard_level
         self.cfg.obs2_hazard_level = self.obs2_hazard_level
@@ -290,6 +294,7 @@ class Go1PushUpperWrapper(EmptyWrapper):
                     self.trajectory[i, :] = interpolate_trajectory(concatenated_trace)
                 else:
                     print("Failed to plan")
+                vis.save_figure(f'./rrt_{i}.png')
 
         next_planning_position = self.Planner.update_next_planning_position(box_pos, self.trajectory)  
         obs = torch.cat([base_info, target_pos[:, :2], box_pos[:, :2], box_rot, self.obs1_pos[:, :2], self.obs2_pos[:, :2], self.obs1_hazard_level.squeeze(), self.obs2_hazard_level.squeeze(), next_planning_position], dim=1).unsqueeze(1)
@@ -415,8 +420,10 @@ class Go1PushUpperWrapper(EmptyWrapper):
             if self.num_obs > 0:
                 self.obs1_pos[reset_envs, :] = npc_pos[reset_envs , 3, :] - self.env.env_origins[reset_envs, :]
                 self.obs2_pos[reset_envs, :] = npc_pos[reset_envs , 4, :] - self.env.env_origins[reset_envs, :]
-                self.obs1_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents, 1), device=self.device)
-                self.obs2_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents, 1), device=self.device)
+                #self.obs1_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents, 1), device=self.device)
+                #self.obs2_hazard_level = torch.randint(1, 4, (self.num_envs, self.num_agents, 1), device=self.device)
+                self.obs1_hazard_level = 1
+                self.obs2_hazard_level = 1
             else:
                 self.obs1_pos[reset_envs, 0] = torch.FloatTensor(len(reset_envs)).uniform_(0, 9).to("cuda")
                 self.obs2_pos[reset_envs, 0] = torch.FloatTensor(len(reset_envs)).uniform_(0, 9).to("cuda")

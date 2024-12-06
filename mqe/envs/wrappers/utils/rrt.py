@@ -133,3 +133,6 @@ class TwoDVisualizer:
         self.ax.cla()
         self.fig.canvas.draw()
         self.fig.canvas.flush_events()
+
+    def save_figure(self, filename):
+        self.fig.savefig(filename)

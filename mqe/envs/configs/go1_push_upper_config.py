@@ -121,14 +121,14 @@ class Go1PushUpperCfg(Go1Cfg):
     # goal setting
     class goal:
         # static goal pos
-        static_goal_pos = False
+        static_goal_pos = True
         goal_pos = [ 5.0,-3.0, 0.1]
         # random goal pos
         random_goal_pos = False
         random_goal_distance_from_init = [1.5 , 3.0]                                  # target_pos_randomlization
         random_goal_theta_from_init = [-0.5 , 0.5] # [min, max]                     # target_theta_randomlization
         # receive goal pos from the user or high layer
-        received_goal_pos = True
+        received_goal_pos = False
         received_final_pos = [ 9.0, 0.0, 0.1]
         # use only for test mode(middle layer sequential task)
         sequential_goal_pos = False
@@ -164,8 +164,8 @@ class Go1PushUpperCfg(Go1Cfg):
         ]
         # random obs pos
         random_obs_pos = True
-        random_obs_x_range = [ 3.0, 14.0]                                  
-        random_obs_y_range = [-7.5, 7.5]
+        random_obs_x_range = [ 3.5, 8]                                  
+        random_obs_y_range = [-4, 4]
         random_obs_rpy_range = dict(                                     # box_yaw_randomlization
                         r= [-0.01, 0.01],
                         p= [-0.01, 0.01],
@@ -174,8 +174,10 @@ class Go1PushUpperCfg(Go1Cfg):
         obs1_pos = [0.0, 0.0, 0.0]
         obs2_pos = [0.0, 0.0, 0.0]
         # make random hazard level
-        obs1_hazard_level = torch.randint(1, 4, (1,)).item()
-        obs2_hazard_level = torch.randint(1, 4, (1,)).item()
+        #obs1_hazard_level = torch.randint(1, 4, (1,)).item()
+        #obs2_hazard_level = torch.randint(1, 4, (1,)).item()
+        obs1_hazard_level = 1
+        obs2_hazard_level = 1
         check_setting = [static_obs_pos, random_obs_pos]
         if check_setting.count(True) != 1:
             raise ValueError("Only one of static_obs_pos, random_obs_pos can be True")
@@ -245,7 +247,7 @@ class Go1PushUpperCfg(Go1Cfg):
             y= [-0.03, 0.03],
         )
         init_npc_base_pos_range = dict(                                     # box_pos_randomlization
-            x= [ 1.4, 1.6],
+            x= [ 1.59, 1.6],
             y= [-0.1, 0.1],
         )
         init_npc_base_rpy_range = dict(                                     # box_yaw_randomlization
